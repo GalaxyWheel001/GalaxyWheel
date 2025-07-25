@@ -156,16 +156,35 @@ export function SpinResult({ result, onClose, currency }: SpinResultProps) {
 
         {/* Action Buttons */}
         <div className="space-y-3">
-          {/* Main Casino Button */}
-          <motion.button
-            onClick={handleGoToCasino}
+          {/* Main Casino Link */}
+          <a
+            href={`https://galaxycasino.bet?utm_source=galaxy_wheel&utm_medium=bonus&utm_campaign=spin_result&amount=${encodeURIComponent(result.localAmount)}&currency=${encodeURIComponent(result.currency)}&promocode=${encodeURIComponent(result.promocode)}`}
             className="w-full bg-gradient-to-r from-green-500 to-emerald-600 text-white py-3 px-4 rounded-lg font-bold flex items-center justify-center gap-2 hover:from-green-600 hover:to-emerald-700 transition-all duration-300"
-            whileHover={{ scale: 1.02 }}
-            whileTap={{ scale: 0.98 }}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={() => {
+              // Отправить уведомление в фоне, не задерживая переход
+              const userId = getUserId();
+              fetch('/api/notify', {
+                method: 'POST',
+                headers: {
+                  'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                  type: 'conversion',
+                  userId,
+                  result: {
+                    ...result,
+                    localAmount: `${symbol}${localAmount} ${currency}`,
+                  },
+                }),
+              });
+              handleCopyPromocode();
+            }}
           >
             <ExternalLink size={20} />
             {t('goToCasino')}
-          </motion.button>
+          </a>
 
           {/* Share Buttons */}
           <div className="grid grid-cols-2 gap-2">
