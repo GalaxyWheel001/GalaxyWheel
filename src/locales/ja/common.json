@@ -1,0 +1,60 @@
+{
+  "title": "GALAXY WHEEL",
+  "subtitle": "宇宙のホイールを回して本物の入金不要ボーナスを獲得しよう！",
+  "freeSpin": "無料スピン",
+  "winBonus": "入金不要ボーナスを獲得",
+  "spinButton": "ホイールを回す",
+  "congratulations": "🎉 おめでとうございます！🎉",
+  "youWon": "あなたが勝ちました",
+  "promocode": "プロモコード",
+  "nextSpinIn": "次のスピンまで",
+  "alreadySpun": "今日はすでにスピンしました！",
+  "comeBackTomorrow": "明日またチャンスを掴みに来てください！",
+  "copyResult": "結果をコピー",
+  "shareResult": "結果を共有",
+  "goToCasino": "カジノへ行く",
+  "support": "サポート",
+  "soundOn": "サウンドオン",
+  "soundOff": "サウンドオフ",
+  "loading": "読み込み中...",
+  "error": "問題が発生しました。もう一度お試しください。",
+  "shareMessage": "{{amount}} {{currency}}の入金不要ボーナスを獲得しました！プロモコード：{{promocode}} 🎰✨",
+  "copied": "クリップボードにコピーされました！",
+  "wheelSectors": {
+    "25": "25ドルボーナス",
+    "50": "50ドルボーナス",
+    "100": "100ドルボーナス",
+    "250": "250ドルボーナス",
+    "500": "500ドルボーナス",
+    "1000": "1000ドルボーナス"
+  },
+  "chat": {
+    "title": "サポートチャット",
+    "placeholder": "メッセージを入力...",
+    "send": "送信",
+    "connecting": "接続中...",
+    "connected": "接続済み",
+    "disconnected": "切断されました"
+  },
+  "shareSpin": {
+    "bonusAdded": "+1スピン追加！",
+    "sharedQuestion": "正常に共有しましたか？",
+    "getBonusHint": "クリックしてボーナススピンを受け取る。",
+    "cancel": "キャンセル",
+    "getSpin": "はい、スピンを受け取る！",
+    "shareVia_telegram": "Telegramで共有",
+    "shareVia_whatsapp": "WhatsAppで共有",
+    "shareVia_twitter": "Twitterで共有",
+    "shareVia_facebook": "Facebookで共有",
+    "telegram": "Telegram",
+    "whatsapp": "WhatsApp",
+    "twitter": "Twitter",
+    "facebook": "Facebook",
+    "shareText": "最大$1000の入金不要ボーナスが欲しい？bonus.galaxycasino.betにアクセスして今すぐチャンスを手に入れよう！🎰✨"
+  },
+  "close": "閉じる"
+,
+  "promocodeCopied": "Copied!"
+,
+  "promocodeCopiedToClipboard": "プロモーションコードがクリップボードにコピーされました！"
+} 

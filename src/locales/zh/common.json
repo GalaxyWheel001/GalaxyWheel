@@ -1,0 +1,60 @@
+{
+  "title": "GALAXY WHEEL",
+  "subtitle": "旋转宇宙之轮，赢取真实的免存款奖金！",
+  "freeSpin": "免费旋转",
+  "winBonus": "赢取免存款奖金",
+  "spinButton": "旋转轮盘",
+  "congratulations": "🎉 恭喜！🎉",
+  "youWon": "你赢了",
+  "promocode": "优惠码",
+  "nextSpinIn": "下次旋转在",
+  "alreadySpun": "你今天已经旋转过了！",
+  "comeBackTomorrow": "明天再来获得更多获胜机会！",
+  "copyResult": "复制结果",
+  "shareResult": "分享结果",
+  "goToCasino": "前往赌场",
+  "support": "支持",
+  "soundOn": "声音开启",
+  "soundOff": "声音关闭",
+  "loading": "加载中...",
+  "error": "出现错误。请再试一次。",
+  "shareMessage": "我赢得了{{amount}} {{currency}}免存款奖金！优惠码：{{promocode}} 🎰✨",
+  "copied": "已复制到剪贴板！",
+  "wheelSectors": {
+    "25": "25美元奖金",
+    "50": "50美元奖金",
+    "100": "100美元奖金",
+    "250": "250美元奖金",
+    "500": "500美元奖金",
+    "1000": "1000美元奖金"
+  },
+  "chat": {
+    "title": "支持聊天",
+    "placeholder": "输入您的消息...",
+    "send": "发送",
+    "connecting": "连接中...",
+    "connected": "已连接",
+    "disconnected": "已断开"
+  },
+  "shareSpin": {
+    "bonusAdded": "+1 次旋转已添加！",
+    "sharedQuestion": "你已成功分享了吗？",
+    "getBonusHint": "点击领取你的奖励旋转。",
+    "cancel": "取消",
+    "getSpin": "是的，领取旋转！",
+    "shareVia_telegram": "通过 Telegram 分享",
+    "shareVia_whatsapp": "通过 WhatsApp 分享",
+    "shareVia_twitter": "通过 Twitter 分享",
+    "shareVia_facebook": "通过 Facebook 分享",
+    "telegram": "Telegram",
+    "whatsapp": "WhatsApp",
+    "twitter": "Twitter",
+    "facebook": "Facebook",
+    "shareText": "想要高达$1000的免存红利吗？快来 bonus.galaxycasino.bet 抢先领取你的获胜机会！🎰✨"
+  },
+  "close": "关闭"
+,
+  "promocodeCopied": "Copied!"
+,
+  "promocodeCopiedToClipboard": "促销代码已复制到剪贴板！"
+} 
