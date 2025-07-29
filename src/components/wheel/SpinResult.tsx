@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 import { Copy, Share2, ExternalLink, Check } from 'lucide-react';
 import { FaFacebookF } from 'react-icons/fa';
-import { getCurrencySymbol, getCurrencyRate } from '@/utils/currencies';
+import { getCurrencySymbol } from '@/utils/currencies';
 import { getUserId } from '@/utils/userId';
 import type { SpinResult } from '@/types';
 import { useState } from 'react';
@@ -21,8 +21,8 @@ export function SpinResult({ result, onClose, currency }: SpinResultProps) {
   const [showCopyNotification, setShowCopyNotification] = useState(false);
 
   const symbol = getCurrencySymbol(currency);
-  const rate = getCurrencyRate(currency);
-  const localAmount = Math.round(result.amount * rate);
+  // Используем уже посчитанный localAmount из результата
+  const localAmount = result.localAmount;
 
   const shareMessage = t('shareMessage', {
     amount: `${symbol}${localAmount}`,
