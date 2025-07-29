@@ -42,7 +42,14 @@ export function WheelOfFortune({ currency, availableSpins, onSpinComplete }: Whe
     // Генерируем результат в USD, потом конвертируем
     const resultUSD = generateSpinResult('USD', 1);
     const localAmount = Math.round(resultUSD.amount * rate);
-    const result = { ...resultUSD, amount: localAmount, currency };
+
+    // Добавляем localAmount в результат
+    const result = { 
+      ...resultUSD, 
+      amount: localAmount, 
+      currency,
+      localAmount,   // добавлено для удобства
+    };
 
     const sectorAngle = 360 / WHEEL_SECTORS.length;
     const finalAngle = (WHEEL_SECTORS.length - result.sectorIndex - 1) * sectorAngle;
@@ -101,7 +108,6 @@ export function WheelOfFortune({ currency, availableSpins, onSpinComplete }: Whe
               inset 0 0 30px rgba(0, 0, 0, 0.4),
               inset 0 0 60px rgba(255, 255, 255, 0.1)
             `,
-            // transform: 'translateZ(0)', // можно добавить для ускорения, но без rotateX!
             filter: 'drop-shadow(0 10px 20px rgba(0, 0, 0, 0.5))'
           }}
         >
