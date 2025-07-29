@@ -5,9 +5,9 @@ const STORAGE_KEY = 'galaxy_wheel_spin_status';
 const SHARE_SPIN_KEY = 'galaxy_wheel_share_spins';
 
 export const WHEEL_SECTORS: WheelSector[] = [
-  { amount: 25FS, color: '#FF6B6B', promocode: 'B25-OFF2024', probability: 0 },
-  { amount: 50FS, color: '#4ECDC4', promocode: 'G50-WINNER', probability: 0 },
-  { amount: 100FS, color: '#45B7D1', promocode: 'L100-COSMO', probability: 0 },
+  { amount: 25, color: '#FF6B6B', promocode: 'B25-OFF2024', probability: 0 },
+  { amount: 50, color: '#4ECDC4', promocode: 'G50-WINNER', probability: 0 },
+  { amount: 100, color: '#45B7D1', promocode: 'L100-COSMO', probability: 0 },
   { amount: 250, color: '#96CEB4', promocode: 'B250-GALAXY', probability: 0.34 },
   { amount: 500, color: '#FFEAA7', promocode: 'V500-UNIVERSE', probability: 0.34 },
   { amount: 1000, color: '#DDA0DD', promocode: 'J1000-MILKYWAY', probability: 0.32 }
