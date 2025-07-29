@@ -21,8 +21,7 @@ export function SpinResult({ result, onClose, currency }: SpinResultProps) {
   const [showCopyNotification, setShowCopyNotification] = useState(false);
 
   const symbol = getCurrencySymbol(currency);
-  // Используем уже посчитанный localAmount из результата
-  const localAmount = result.localAmount;
+  const localAmount = result.localAmount ?? result.amount; // fallback на amount, если localAmount нет
 
   const shareMessage = t('shareMessage', {
     amount: `${symbol}${localAmount}`,
@@ -74,37 +73,6 @@ export function SpinResult({ result, onClose, currency }: SpinResultProps) {
     window.open(url, '_blank', 'width=600,height=400');
   };
 
-  const handleGoToCasino = async () => {
-    await handleCopyPromocode();
-
-    const userId = getUserId();
-    await fetch('/api/notify', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        type: 'conversion',
-        userId,
-        result: {
-          ...result,
-          localAmount: `${symbol}${localAmount} ${currency}`,
-        },
-      }),
-    });
-
-    const params = new URLSearchParams({
-      utm_source: 'galaxy_wheel',
-      utm_medium: 'bonus',
-      utm_campaign: 'spin_result',
-      amount: result.localAmount.toString(),
-      currency: result.currency,
-      promocode: result.promocode
-    });
-    const casinoUrl = `https://galaxycasino.bet?${params.toString()}`;
-    window.open(casinoUrl, '_blank');
-  };
-
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -148,7 +116,7 @@ export function SpinResult({ result, onClose, currency }: SpinResultProps) {
           {/* Promocode */}
           <div className="bg-gray-700 rounded-lg p-3 border border-gray-600">
             <div className="text-gray-400 text-sm mb-1">{t('promocode')}</div>
-            <div className="text-cyan-400 font-mono text-lg font-bold">
+            <div className="text-cyan-400 font-mono text-lg font-bold truncate">
               {result.promocode}
             </div>
           </div>
@@ -158,18 +126,15 @@ export function SpinResult({ result, onClose, currency }: SpinResultProps) {
         <div className="space-y-3">
           {/* Main Casino Link */}
           <a
-            href={`https://galaxycasino.bet?utm_source=galaxy_wheel&utm_medium=bonus&utm_campaign=spin_result&amount=${encodeURIComponent(result.localAmount)}&currency=${encodeURIComponent(result.currency)}&promocode=${encodeURIComponent(result.promocode)}`}
+            href={`https://galaxycasino.bet?utm_source=galaxy_wheel&utm_medium=bonus&utm_campaign=spin_result&amount=${encodeURIComponent(localAmount)}&currency=${encodeURIComponent(currency)}&promocode=${encodeURIComponent(result.promocode)}`}
             className="w-full bg-gradient-to-r from-green-500 to-emerald-600 text-white py-3 px-4 rounded-lg font-bold flex items-center justify-center gap-2 hover:from-green-600 hover:to-emerald-700 transition-all duration-300"
             target="_blank"
             rel="noopener noreferrer"
             onClick={() => {
-              // Отправить уведомление в фоне, не задерживая переход
               const userId = getUserId();
               fetch('/api/notify', {
                 method: 'POST',
-                headers: {
-                  'Content-Type': 'application/json',
-                },
+                headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
                   type: 'conversion',
                   userId,
