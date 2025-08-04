@@ -1,0 +1,60 @@
+{
+  "title": "GALAXY WHEEL",
+  "subtitle": "Drehe das kosmische Rad und gewinne echte No-Deposit-Boni!",
+  "freeSpin": "GRATIS-DREHUNG",
+  "winBonus": "GEWINNE NO-DEPOSIT-BONUS",
+  "spinButton": "RAD DREHEN",
+  "congratulations": "🎉 GLÜCKWUNSCH! 🎉",
+  "youWon": "Du hast gewonnen",
+  "promocode": "Promocode",
+  "nextSpinIn": "Nächste Drehung in",
+  "alreadySpun": "Du hast heute schon gedreht!",
+  "comeBackTomorrow": "Komm morgen wieder für eine weitere Gewinnchance!",
+  "copyResult": "Ergebnis kopieren",
+  "shareResult": "Ergebnis teilen",
+  "goToCasino": "Zum Casino",
+  "support": "Support",
+  "soundOn": "Ton an",
+  "soundOff": "Ton aus",
+  "loading": "Lädt...",
+  "error": "Etwas ist schief gelaufen. Bitte versuche es erneut.",
+  "shareMessage": "Ich habe {{amount}} {{currency}} No-Deposit-Bonus gewonnen! Promocode: {{promocode}} 🎰✨",
+  "copied": "In die Zwischenablage kopiert!",
+  "wheelSectors": {
+    "25": "25$ Bonus",
+    "50": "50$ Bonus",
+    "100": "100$ Bonus",
+    "250": "250$ Bonus",
+    "500": "500$ Bonus",
+    "1000": "1000$ Bonus"
+  },
+  "chat": {
+    "title": "Support-Chat",
+    "placeholder": "Gib deine Nachricht ein...",
+    "send": "Senden",
+    "connecting": "Verbinde...",
+    "connected": "Verbunden",
+    "disconnected": "Getrennt"
+  },
+  "shareSpin": {
+    "bonusAdded": "+1 Drehung hinzugefügt!",
+    "sharedQuestion": "Hast du erfolgreich geteilt?",
+    "getBonusHint": "Klicke, um deinen Bonus-Dreh zu erhalten.",
+    "cancel": "Abbrechen",
+    "getSpin": "Ja, Drehung erhalten!",
+    "shareVia_telegram": "Teilen via Telegram",
+    "shareVia_whatsapp": "Teilen via WhatsApp",
+    "shareVia_twitter": "Teilen via Twitter",
+    "shareVia_facebook": "Teilen via Facebook",
+    "telegram": "Telegram",
+    "whatsapp": "WhatsApp",
+    "twitter": "Twitter",
+    "facebook": "Facebook",
+    "shareText": "Möchtest du einen No-Deposit-Bonus bis zu $1000? Gehe auf bonus.galaxycasino.bet und sichere dir jetzt deine Gewinnchance! 🎰✨"
+  },
+  "close": "Schließen"
+,
+  "promocodeCopied": "Copied!"
+,
+  "promocodeCopiedToClipboard": "Gutscheincode in die Zwischenablage kopiert!"
+} 
