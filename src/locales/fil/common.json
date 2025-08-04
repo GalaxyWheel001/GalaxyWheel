@@ -1,0 +1,58 @@
+{
+  "title": "GALAXY WHEEL",
+  "subtitle": "Paikutin ang cosmic wheel at manalo ng totoong no-deposit bonus!",
+  "freeSpin": "LIBRENG IKOT",
+  "winBonus": "MANALO NG NO-DEPOSIT BONUS",
+  "spinButton": "PAIKUTIN ANG WHEEL",
+  "congratulations": "🎉 BINABATI KITA! 🎉",
+  "youWon": "Nanalo ka",
+  "promocode": "Promo code",
+  "nextSpinIn": "Susunod na ikot sa",
+  "alreadySpun": "Nakapaikot ka na ngayon!",
+  "comeBackTomorrow": "Bumalik bukas para sa isa pang pagkakataon na manalo!",
+  "copyResult": "Kopyahin ang resulta",
+  "shareResult": "Ibahagi ang resulta",
+  "goToCasino": "Pumunta sa Casino",
+  "support": "Suporta",
+  "soundOn": "Tunog naka-on",
+  "soundOff": "Tunog naka-off",
+  "loading": "Naglo-load...",
+  "error": "May nangyaring mali. Pakisubukang muli.",
+  "shareMessage": "Nanalo ako ng {{amount}} {{currency}} no deposit bonus! Promo code: {{promocode}} 🎰✨",
+  "copied": "Nakopya sa clipboard!",
+  "wheelSectors": {
+    "25": "₱25 Bonus",
+    "50": "₱50 Bonus",
+    "100": "₱100 Bonus",
+    "250": "₱250 Bonus",
+    "500": "₱500 Bonus",
+    "1000": "₱1000 Bonus"
+  },
+  "chat": {
+    "title": "Support Chat",
+    "placeholder": "I-type ang iyong mensahe...",
+    "send": "Ipadala",
+    "connecting": "Kumokonekta...",
+    "connected": "Nakakonekta",
+    "disconnected": "Nakakalas"
+  },
+  "shareSpin": {
+    "bonusAdded": "+1 ikot nadagdag!",
+    "sharedQuestion": "Matagumpay mo bang naibahagi?",
+    "getBonusHint": "I-click para makuha ang iyong bonus na ikot.",
+    "cancel": "Kanselahin",
+    "getSpin": "Oo, kunin ang ikot!",
+    "shareVia_telegram": "Ibahagi sa Telegram",
+    "shareVia_whatsapp": "Ibahagi sa WhatsApp",
+    "shareVia_twitter": "Ibahagi sa Twitter",
+    "shareVia_facebook": "Ibahagi sa Facebook",
+    "telegram": "Telegram",
+    "whatsapp": "WhatsApp",
+    "twitter": "Twitter"
+  },
+  "close": "Isara"
+,
+  "promocodeCopied": "Copied!"
+,
+  "promocodeCopiedToClipboard": "Kinopya ang promocode sa clipboard!"
+} 
