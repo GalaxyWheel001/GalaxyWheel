@@ -151,18 +151,12 @@ function getCurrencyByCountry(countryCode: string): SupportedCurrency {
     'GQ': 'XAF', 'CM': 'XAF', 'CF': 'XAF', 'TD': 'XAF', 'GN': 'GNF', 'SL': 'SLL',
     'LR': 'LRD', 'GM': 'GMD', 'SN': 'XOF', 'CI': 'XOF', 'BF': 'XOF', 'ML': 'XOF',
     'NE': 'XOF', 'TG': 'XOF', 'BJ': 'XOF', 'GW': 'XOF', 'CV': 'CVE', 'ST': 'STD',
-    'AO': 'AOA', 'MZ': 'MZN', 'ZW': 'USD', 'ZA': 'ZAR', 'MG': 'USD', 'MU': 'MUR',
-    'SC': 'SCR', 'KM': 'KMF', 'DJ': 'DJF', 'ET': 'ETB', 'SD': 'SDG', 'SS': 'SSP',
-    'ER': 'ERN', 'SO': 'SOS', 'RW': 'RWF', 'BI': 'BIF', 'CD': 'CDF', 'CG': 'XAF',
-    'GA': 'XAF', 'GQ': 'XAF', 'CM': 'XAF', 'CF': 'XAF', 'TD': 'XAF', 'GN': 'GNF',
-    'SL': 'SLL', 'LR': 'LRD', 'GM': 'GMD', 'SN': 'XOF', 'CI': 'XOF', 'BF': 'XOF',
-    'ML': 'XOF', 'NE': 'XOF', 'TG': 'XOF', 'BJ': 'XOF', 'GW': 'XOF', 'CV': 'CVE',
-    'ST': 'STD',
+    'AO': 'AOA', 'MZ': 'MZN', 'ZW': 'USD', 'ZA': 'ZAR', 'MG': 'USD',
     
     // Океания
     'AU': 'AUD', 'NZ': 'NZD', 'FJ': 'FJD', 'PG': 'PGK', 'SB': 'SBD', 'VU': 'VUV',
     'NC': 'XPF', 'PF': 'XPF', 'WF': 'XPF', 'TO': 'TOP', 'WS': 'WST', 'KI': 'AUD',
-    'TV': 'AUD', 'NR': 'AUD',     'PW': 'USD', 'FM': 'USD', 'MH': 'USD', 'CK': 'NZD',
+    'TV': 'AUD', 'NR': 'AUD', 'PW': 'USD', 'FM': 'USD', 'MH': 'USD', 'CK': 'NZD',
     'NU': 'NZD', 'TK': 'NZD', 'AS': 'USD', 'GU': 'USD', 'MP': 'USD',
     
     // Южная Америка
