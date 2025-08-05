@@ -33,10 +33,10 @@
 ### 5. Проблемы с валютами и дублирующимися свойствами
 - **Файл:** `src/utils/geolocation.ts`
 - **Проблема:** 
-  - Использовались валюты, которые не определены в типе `SupportedCurrency` (SKK, SIT, EEK, LVL, LTL, MTL, CYP, KGS, TJS, TMT, YER, MGA, ZWL, BTN)
+  - Использовались валюты, которые не определены в типе `SupportedCurrency` (SKK, SIT, EEK, LVL, LTL, MTL, CYP, KGS, TJS, TMT, YER, MGA, ZWL, BTN, FKP)
   - Дублирующиеся свойства в объекте currencyMap
 - **Исправление:** 
-  - Заменил все проблемные валюты на поддерживаемые (EUR, RUB, SAR, USD, INR)
+  - Заменил все проблемные валюты на поддерживаемые (EUR, RUB, SAR, USD, INR, GBP)
   - Удалил все дублирующиеся свойства из объекта
 - **Статус:** ✅ Исправлено
 

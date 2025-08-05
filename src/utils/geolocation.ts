@@ -162,7 +162,7 @@ function getCurrencyByCountry(countryCode: string): SupportedCurrency {
     // Южная Америка
     'BR': 'BRL', 'AR': 'ARS', 'CL': 'CLP', 'CO': 'COP', 'PE': 'PEN', 'VE': 'VES',
     'EC': 'USD', 'BO': 'BOB', 'PY': 'PYG', 'UY': 'UYU', 'GY': 'GYD', 'SR': 'SRD',
-    'GF': 'EUR', 'FK': 'FKP', 'GS': 'GBP', 'AQ': 'USD'
+    'GF': 'EUR', 'FK': 'GBP', 'GS': 'GBP', 'AQ': 'USD'
   };
 
   return currencyMap[countryCode] || 'USD';
