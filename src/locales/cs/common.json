@@ -1,0 +1,58 @@
+{
+  "title": "GALAXY WHEEL",
+  "subtitle": "Roztočte kosmické kolo a vyhrajte skutečné bonusy bez vkladu!",
+  "freeSpin": "ZDARMA SPIN",
+  "winBonus": "VYHRAJTE BONUS BEZ VKLADU",
+  "spinButton": "ROZTOČIT KOLO",
+  "congratulations": "🎉 GRATULUJEME! 🎉",
+  "youWon": "Vyhráli jste",
+  "promocode": "Promokód",
+  "nextSpinIn": "Další spin za",
+  "alreadySpun": "Dnes jste již točili!",
+  "comeBackTomorrow": "Vraťte se zítra pro další šanci na výhru!",
+  "copyResult": "Kopírovat výsledek",
+  "shareResult": "Sdílet výsledek",
+  "goToCasino": "Jít do kasina",
+  "support": "Podpora",
+  "soundOn": "Zvuk zapnutý",
+  "soundOff": "Zvuk vypnutý",
+  "loading": "Načítání...",
+  "error": "Něco se pokazilo. Zkuste to prosím znovu.",
+  "shareMessage": "Vyhrál jsem {{amount}} {{currency}} bonus bez vkladu! Promokód: {{promocode}} 🎰✨",
+  "copied": "Zkopírováno do schránky!",
+  "wheelSectors": {
+    "25": "Bonus 25$",
+    "50": "Bonus 50$",
+    "100": "Bonus 100$",
+    "250": "Bonus 250$",
+    "500": "Bonus 500$",
+    "1000": "Bonus 1000$"
+  },
+  "chat": {
+    "title": "Chat podpory",
+    "placeholder": "Napište svou zprávu...",
+    "send": "Odeslat",
+    "connecting": "Připojování...",
+    "connected": "Připojeno",
+    "disconnected": "Odpojeno"
+  },
+  "shareSpin": {
+    "bonusAdded": "+1 spin přidán!",
+    "sharedQuestion": "Úspěšně jste sdíleli?",
+    "getBonusHint": "Klikněte pro získání bonusového spinu.",
+    "cancel": "Zrušit",
+    "getSpin": "Ano, získat spin!",
+    "shareVia_telegram": "Sdílet přes Telegram",
+    "shareVia_whatsapp": "Sdílet přes WhatsApp",
+    "shareVia_twitter": "Sdílet přes Twitter",
+    "shareVia_facebook": "Sdílet přes Facebook",
+    "telegram": "Telegram",
+    "whatsapp": "WhatsApp",
+    "twitter": "Twitter"
+  },
+  "close": "Zavřít"
+,
+  "promocodeCopied": "Copied!"
+,
+  "promocodeCopiedToClipboard": "Propagační kód byl zkopírován do schránky!"
+} 
