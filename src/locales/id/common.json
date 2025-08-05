@@ -1,0 +1,58 @@
+{
+  "title": "GALAXY WHEEL",
+  "subtitle": "Putar roda kosmik dan menangkan bonus nyata tanpa deposit!",
+  "freeSpin": "PUTARAN GRATIS",
+  "winBonus": "MENANGKAN BONUS TANPA DEPOSIT",
+  "spinButton": "PUTAR RODA",
+  "congratulations": "🎉 SELAMAT! 🎉",
+  "youWon": "Anda menang",
+  "promocode": "Kode promo",
+  "nextSpinIn": "Putaran berikutnya dalam",
+  "alreadySpun": "Anda sudah memutar hari ini!",
+  "comeBackTomorrow": "Kembali besok untuk kesempatan menang lagi!",
+  "copyResult": "Salin hasil",
+  "shareResult": "Bagikan hasil",
+  "goToCasino": "Pergi ke Kasino",
+  "support": "Dukungan",
+  "soundOn": "Suara aktif",
+  "soundOff": "Suara nonaktif",
+  "loading": "Memuat...",
+  "error": "Terjadi kesalahan. Silakan coba lagi.",
+  "shareMessage": "Saya memenangkan {{amount}} {{currency}} bonus tanpa deposit! Kode: {{promocode}} 🎰✨",
+  "copied": "Disalin ke clipboard!",
+  "wheelSectors": {
+    "25": "Bonus 25$",
+    "50": "Bonus 50$",
+    "100": "Bonus 100$",
+    "250": "Bonus 250$",
+    "500": "Bonus 500$",
+    "1000": "Bonus 1000$"
+  },
+  "chat": {
+    "title": "Obrolan Dukungan",
+    "placeholder": "Ketik pesan Anda...",
+    "send": "Kirim",
+    "connecting": "Menghubungkan...",
+    "connected": "Terhubung",
+    "disconnected": "Terputus"
+  },
+  "shareSpin": {
+    "bonusAdded": "+1 putaran ditambahkan!",
+    "sharedQuestion": "Apakah Anda berhasil membagikan?",
+    "getBonusHint": "Klik untuk mendapatkan putaran bonus Anda.",
+    "cancel": "Batal",
+    "getSpin": "Ya, dapatkan putaran!",
+    "shareVia_telegram": "Bagikan melalui Telegram",
+    "shareVia_whatsapp": "Bagikan melalui WhatsApp",
+    "shareVia_twitter": "Bagikan melalui Twitter",
+    "shareVia_facebook": "Bagikan melalui Facebook",
+    "telegram": "Telegram",
+    "whatsapp": "WhatsApp",
+    "twitter": "Twitter"
+  },
+  "close": "Tutup"
+,
+  "promocodeCopied": "Copied!"
+,
+  "promocodeCopiedToClipboard": "Kode promo disalin ke clipboard!"
+} 
