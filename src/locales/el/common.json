@@ -1,0 +1,58 @@
+{
+  "title": "GALAXY WHEEL",
+  "subtitle": "Γύρισε τον κοσμικό τροχό και κέρδισε πραγματικά μπόνους χωρίς κατάθεση!",
+  "freeSpin": "ΔΩΡΕΑΝ ΠΕΡΙΣΤΡΟΦΗ",
+  "winBonus": "ΚΕΡΔΙΣΕ ΜΠΟΝΟΥΣ ΧΩΡΙΣ ΚΑΤΑΘΕΣΗ",
+  "spinButton": "ΓΥΡΙΣΕ ΤΟΝ ΤΡΟΧΟ",
+  "congratulations": "🎉 ΣΥΓΧΑΡΗΤΗΡΙΑ! 🎉",
+  "youWon": "Κερδίσατε",
+  "promocode": "Κωδικός προσφοράς",
+  "nextSpinIn": "Επόμενη περιστροφή σε",
+  "alreadySpun": "Έχετε ήδη γυρίσει σήμερα!",
+  "comeBackTomorrow": "Επιστρέψτε αύριο για άλλη μια ευκαιρία να κερδίσετε!",
+  "copyResult": "Αντιγραφή αποτελέσματος",
+  "shareResult": "Κοινοποίηση αποτελέσματος",
+  "goToCasino": "Μετάβαση στο Καζίνο",
+  "support": "Υποστήριξη",
+  "soundOn": "Ήχος ενεργός",
+  "soundOff": "Ήχος ανενεργός",
+  "loading": "Φόρτωση...",
+  "error": "Κάτι πήγε στραβά. Παρακαλώ δοκιμάστε ξανά.",
+  "shareMessage": "Κέρδισα {{amount}} {{currency}} μπόνους χωρίς κατάθεση! Κωδικός: {{promocode}} 🎰✨",
+  "copied": "Αντιγράφηκε στο πρόχειρο!",
+  "wheelSectors": {
+    "25": "Μπόνους 25$",
+    "50": "Μπόνους 50$",
+    "100": "Μπόνους 100$",
+    "250": "Μπόνους 250$",
+    "500": "Μπόνους 500$",
+    "1000": "Μπόνους 1000$"
+  },
+  "chat": {
+    "title": "Συνομιλία Υποστήριξης",
+    "placeholder": "Πληκτρολογήστε το μήνυμά σας...",
+    "send": "Αποστολή",
+    "connecting": "Σύνδεση...",
+    "connected": "Συνδεδεμένο",
+    "disconnected": "Αποσυνδεδεμένο"
+  },
+  "shareSpin": {
+    "bonusAdded": "+1 περιστροφή προστέθηκε!",
+    "sharedQuestion": "Μοιραστήκατε με επιτυχία;",
+    "getBonusHint": "Κάντε κλικ για να λάβετε το μπόνους περιστροφής σας.",
+    "cancel": "Ακύρωση",
+    "getSpin": "Ναι, λάβετε περιστροφή!",
+    "shareVia_telegram": "Κοινοποίηση μέσω Telegram",
+    "shareVia_whatsapp": "Κοινοποίηση μέσω WhatsApp",
+    "shareVia_twitter": "Κοινοποίηση μέσω Twitter",
+    "shareVia_facebook": "Κοινοποίηση μέσω Facebook",
+    "telegram": "Telegram",
+    "whatsapp": "WhatsApp",
+    "twitter": "Twitter"
+  },
+  "close": "Κλείσιμο"
+,
+  "promocodeCopied": "Copied!"
+,
+  "promocodeCopiedToClipboard": "Ο κωδικός προσφοράς αντιγράφηκε στο πρόχειρο!"
+} 
