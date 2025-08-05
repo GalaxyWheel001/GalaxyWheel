@@ -187,7 +187,7 @@ function getLanguageByCountry(countryCode: string): SupportedLanguage {
     'BO': 'es', 'PY': 'es', 'UY': 'es', 'GY': 'en', 'SR': 'nl', 'GF': 'fr', 'FK': 'en',
     
     // Азия
-    'JP': 'ja', 'CN': 'zh', 'TW': 'zh', 'HK': 'zh', 'MO': 'zh', 'KR': 'ko', 'VN': 'vi',
+    'JP': 'ja', 'CN': 'zh', 'TW': 'zh', 'HK': 'zh', 'MO': 'zh', 'KR': 'kr', 'VN': 'vi',
     'TH': 'th', 'MY': 'ms', 'ID': 'id', 'PH': 'fil', 'SG': 'en', 'BN': 'ms', 'KH': 'km',
     'LA': 'lo', 'MM': 'my', 'BD': 'bn', 'LK': 'si', 'NP': 'ne', 'BT': 'dz', 'MV': 'dv',
     'IN': 'hi', 'PK': 'ur', 'AF': 'ps', 'IR': 'fa', 'IQ': 'ar', 'SY': 'ar', 'LB': 'ar',
