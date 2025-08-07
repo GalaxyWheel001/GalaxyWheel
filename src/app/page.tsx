@@ -110,6 +110,11 @@ export default function HomePage() {
   useEffect(() => {
     setMounted(true);
     initializeApp();
+    // Синхронизируем язык с кукой, если отличается
+    const cookieLang = (typeof document !== 'undefined' && document.cookie.match(/galaxy_wheel_language=([^;]+)/)?.[1]) || undefined;
+    if (cookieLang && i18n.language !== cookieLang) {
+      i18n.changeLanguage(cookieLang);
+    }
   }, [initializeApp]);
 
   const handleSpinResult = (result: SpinResultType) => {

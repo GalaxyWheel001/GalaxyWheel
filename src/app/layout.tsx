@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import ClientBody from "./ClientBody";
 import Script from "next/script";
+import { cookies } from 'next/headers';
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -86,8 +87,13 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  // Получаем язык из куки SSR
+  let lang = 'en';
+  try {
+    lang = cookies().get('galaxy_wheel_language')?.value || 'en';
+  } catch {}
   return (
-    <html lang="ru" className={`${geistSans.variable} ${geistMono.variable}`}>
+    <html lang={lang} className={`${geistSans.variable} ${geistMono.variable}`}>
       <head>
         <link rel="icon" href="/favicon.ico" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />

@@ -44,12 +44,25 @@ const resources = {
   'es-MX': { common: esMXCommon },
 };
 
+function getInitialLanguage() {
+  if (typeof window !== 'undefined') {
+    // На клиенте читаем из localStorage или куки
+    return localStorage.getItem('galaxy_wheel_language') ||
+      (document.cookie.match(/galaxy_wheel_language=([^;]+)/)?.[1]) || undefined;
+  } else if (typeof global !== 'undefined' && (global as any).initialLanguage) {
+    // На сервере можно пробросить initialLanguage через глобал (если нужно)
+    return (global as any).initialLanguage;
+  }
+  return undefined;
+}
+
 i18n
   .use(LanguageDetector)
   .use(initReactI18next)
   .init({
     resources,
     fallbackLng: 'en',
+    lng: getInitialLanguage(),
     defaultNS: 'common',
     ns: ['common'],
 
