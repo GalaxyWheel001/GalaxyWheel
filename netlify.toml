@@ -1,4 +1,5 @@
 [[redirects]]
-  from = "/*"
-  to = "/index.html"
+  from = "/"
+  to = "/.netlify/functions/redirect"
   status = 200
+  force = true
