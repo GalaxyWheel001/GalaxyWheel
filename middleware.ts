@@ -31,25 +31,21 @@ export async function middleware(request: NextRequest) {
     return NextResponse.next();
   }
   
-  // Проверяем, есть ли кука с языком
-  const languageCookie = request.cookies.get('galaxy_wheel_language');
-  if (!languageCookie) {
-    // Получаем IP пользователя
-    const ip = (request.headers.get('x-forwarded-for') ?? '127.0.0.1').split(',')[0];
-    // Определяем язык по IP
-    let language = 'en';
-    try {
-      const geo = await getLocationByIp(ip);
-      language = geo.language || 'en';
-      console.log('🌍 Geo IP:', ip, 'Country:', geo.country_code, 'Language:', language);
-    } catch (e) {
-      // fallback
-    }
-    // Устанавливаем куку с языком всегда (даже если уже есть)
-    const response = NextResponse.next();
-    response.cookies.set('galaxy_wheel_language', language, { path: '/', maxAge: 60 * 60 * 24 * 30 });
-    return response;
+  // Получаем IP пользователя
+  const ip = (request.headers.get('x-forwarded-for') ?? '127.0.0.1').split(',')[0];
+  // Определяем язык по IP
+  let language = 'en';
+  try {
+    const geo = await getLocationByIp(ip);
+    language = geo.language || 'en';
+    console.log('🌍 Geo IP:', ip, 'Country:', geo.country_code, 'Language:', language);
+  } catch (e) {
+    // fallback
   }
+  // Устанавливаем куку с языком всегда (даже если уже есть)
+  const response = NextResponse.next();
+  response.cookies.set('galaxy_wheel_language', language, { path: '/', maxAge: 60 * 60 * 24 * 30 });
+  return response;
   
   // Дополнительные проверки для более точного определения ботов
   const isDefinitelyHuman = 
