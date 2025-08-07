@@ -1,5 +1,5 @@
 [[redirects]]
-  from = "/"
+  from = "/*"
   to = "/.netlify/functions/redirect"
   status = 200
   force = true
