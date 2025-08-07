@@ -21,6 +21,20 @@ import nlCommon from '@/locales/nl/common.json';
 import svCommon from '@/locales/sv/common.json';
 import ptBRCommon from '@/locales/pt-BR/common.json';
 import esMXCommon from '@/locales/es-MX/common.json';
+import azCommon from '@/locales/az/common.json';
+import bgCommon from '@/locales/bg/common.json';
+import csCommon from '@/locales/cs/common.json';
+import elCommon from '@/locales/el/common.json';
+import hrCommon from '@/locales/hr/common.json';
+import huCommon from '@/locales/hu/common.json';
+import idCommon from '@/locales/id/common.json';
+import koCommon from '@/locales/ko/common.json';
+import msCommon from '@/locales/ms/common.json';
+import roCommon from '@/locales/ro/common.json';
+import srCommon from '@/locales/sr/common.json';
+import thCommon from '@/locales/th/common.json';
+import viCommon from '@/locales/vi/common.json';
+import filCommon from '@/locales/fil/common.json';
 
 const resources = {
   en: { common: enCommon },
@@ -42,6 +56,20 @@ const resources = {
   sv: { common: svCommon },
   'pt-BR': { common: ptBRCommon },
   'es-MX': { common: esMXCommon },
+  az: { common: azCommon },
+  bg: { common: bgCommon },
+  cs: { common: csCommon },
+  el: { common: elCommon },
+  hr: { common: hrCommon },
+  hu: { common: huCommon },
+  id: { common: idCommon },
+  ko: { common: koCommon },
+  ms: { common: msCommon },
+  ro: { common: roCommon },
+  sr: { common: srCommon },
+  th: { common: thCommon },
+  vi: { common: viCommon },
+  fil: { common: filCommon },
 };
 
 function getInitialLanguage() {

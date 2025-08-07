@@ -20,6 +20,14 @@
   NEXT_TELEMETRY_DISABLED = "1"
   NODE_OPTIONS = "--max-old-space-size=4096"
 
+# Включаем геолокацию и заголовки страны
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Country = "{{country}}"
+    X-Language = "{{language}}"
+
+# Общий редирект для всех страниц
 [[redirects]]
   from = "/*"
   to = "/"
