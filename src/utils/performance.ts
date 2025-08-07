@@ -17,12 +17,14 @@ export function throttle<T extends (...args: unknown[]) => unknown>(
   func: T,
   limit: number
 ): (...args: Parameters<T>) => void {
-  let inThrottle: boolean;
+  let inThrottle = false;
   return (...args: Parameters<T>) => {
     if (!inThrottle) {
       func(...args);
       inThrottle = true;
-      setTimeout(() => (inThrottle = false), limit);
+      setTimeout(() => {
+        inThrottle = false;
+      }, limit);
     }
   };
 }
@@ -43,12 +45,16 @@ export function createVirtualList<T>(
       const start = Math.floor(scrollTop / itemHeight);
       const end = Math.min(start + visibleCount, items.length);
       return { start, end };
-    }
+    },
   };
 }
 
 // Оптимизация изображений
-export function optimizeImage(src: string, width: number, quality: number = 80): string {
+export function optimizeImage(
+  src: string,
+  width: number,
+  quality: number = 80
+): string {
   // Здесь можно добавить логику оптимизации изображений
   // Например, использование CDN или сервиса оптимизации
   return src;
@@ -56,34 +62,33 @@ export function optimizeImage(src: string, width: number, quality: number = 80):
 
 // Предзагрузка критических ресурсов
 export function preloadCriticalResources() {
-  const criticalResources = [
-    '/api/notify',
-    '/api/analytics'
-  ];
+  const criticalResources = ["/api/notify", "/api/analytics"];
 
   // Предзагружаем API endpoints
-  criticalResources.forEach(url => {
-    const link = document.createElement('link');
-    link.rel = 'preconnect';
+  criticalResources.forEach((url) => {
+    const link = document.createElement("link");
+    link.rel = "preconnect";
     link.href = url;
     document.head.appendChild(link);
   });
 }
 
 // Оптимизация памяти
+interface GCWindow extends Window {
+  gc?: () => void;
+}
+
 export function cleanupMemory() {
-  // Очищаем неиспользуемые ресурсы
-  const maybeGC = (window as any).gc;
-  if (typeof maybeGC === 'function') {
+  const maybeGC = (window as GCWindow).gc;
+  if (typeof maybeGC === "function") {
     maybeGC();
   }
 }
 
 // Мониторинг производительности
 export function monitorPerformance() {
-  if (typeof window === 'undefined') return;
+  if (typeof window === "undefined") return;
 
-  // Отслеживаем FPS
   let frameCount = 0;
   let lastTime = performance.now();
 
@@ -95,9 +100,8 @@ export function monitorPerformance() {
       const fps = Math.round((frameCount * 1000) / (currentTime - lastTime));
       console.log(`FPS: ${fps}`);
 
-      // Отправляем метрики если FPS низкий
       if (fps < 30) {
-        // Можно отправить в аналитику
+        // Отправить в аналитику, если нужно
       }
 
       frameCount = 0;
@@ -109,4 +113,6 @@ export function monitorPerformance() {
 
   requestAnimationFrame(countFrames);
 }
+
+
 
