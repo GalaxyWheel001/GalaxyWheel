@@ -73,7 +73,7 @@ export function preloadCriticalResources() {
 // Оптимизация памяти
 export function cleanupMemory() {
   // Очищаем неиспользуемые ресурсы
-  const maybeGC = (window as Record<string, unknown>).gc;
+  const maybeGC = (window as any).gc;
   if (typeof maybeGC === 'function') {
     maybeGC();
   }
@@ -109,3 +109,4 @@ export function monitorPerformance() {
 
   requestAnimationFrame(countFrames);
 }
+
