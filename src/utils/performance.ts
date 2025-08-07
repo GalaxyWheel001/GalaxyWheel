@@ -35,7 +35,7 @@ export function createVirtualList<T>(
 ) {
   const visibleCount = Math.ceil(containerHeight / itemHeight);
   const totalHeight = items.length * itemHeight;
-  
+
   return {
     visibleCount,
     totalHeight,
@@ -73,8 +73,9 @@ export function preloadCriticalResources() {
 // Оптимизация памяти
 export function cleanupMemory() {
   // Очищаем неиспользуемые ресурсы
-  if ('gc' in window) {
-    (window as Record<string, unknown>).gc();
+  const maybeGC = (window as Record<string, unknown>).gc;
+  if (typeof maybeGC === 'function') {
+    maybeGC();
   }
 }
 
@@ -89,22 +90,22 @@ export function monitorPerformance() {
   function countFrames() {
     frameCount++;
     const currentTime = performance.now();
-    
+
     if (currentTime - lastTime >= 1000) {
       const fps = Math.round((frameCount * 1000) / (currentTime - lastTime));
       console.log(`FPS: ${fps}`);
-      
+
       // Отправляем метрики если FPS низкий
       if (fps < 30) {
         // Можно отправить в аналитику
       }
-      
+
       frameCount = 0;
       lastTime = currentTime;
     }
-    
+
     requestAnimationFrame(countFrames);
   }
 
   requestAnimationFrame(countFrames);
-} 
+}
