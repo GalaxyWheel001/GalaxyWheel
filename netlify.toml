@@ -1,7 +1,5 @@
-[functions]
-  directory = "netlify/functions"
-
 [[redirects]]
   from = "/"
   to = "/.netlify/functions/redirect"
   status = 200
+  force = true
