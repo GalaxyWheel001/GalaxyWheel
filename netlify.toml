@@ -1,34 +1,7 @@
-[build]
-  command = "npm ci --legacy-peer-deps && npm run build"
+[functions]
+  directory = "netlify/functions"
 
-[[plugins]]
-  package = "@netlify/plugin-nextjs"
-
-[images]
-  remote_images = [
-    "https://source.unsplash.com/.*",
-    "https://images.unsplash.com/.*",
-    "https://ext.same-assets.com/.*",
-    "https://ugc.same-assets.com/.*"
-  ]
-
-[build.environment]
-  TELEGRAM_BOT_TOKEN = "YOUR_BOT_TOKEN_HERE"
-  TELEGRAM_CHAT_ID = "YOUR_CHAT_ID_HERE"
-  NPM_FLAGS = "--legacy-peer-deps"
-  NODE_VERSION = "18.18.0"
-  NEXT_TELEMETRY_DISABLED = "1"
-  NODE_OPTIONS = "--max-old-space-size=4096"
-
-# Включаем геолокацию и заголовки страны
-[[headers]]
-  for = "/*"
-  [headers.values]
-    X-Country = "{{country}}"
-    X-Language = "{{language}}"
-
-# Общий редирект для всех страниц
 [[redirects]]
-  from = "/*"
-  to = "/"
+  from = "/"
+  to = "/.netlify/functions/redirect"
   status = 200
