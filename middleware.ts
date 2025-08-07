@@ -41,10 +41,11 @@ export async function middleware(request: NextRequest) {
     try {
       const geo = await getLocationByIp(ip);
       language = geo.language || 'en';
+      console.log('🌍 Geo IP:', ip, 'Country:', geo.country_code, 'Language:', language);
     } catch (e) {
       // fallback
     }
-    // Устанавливаем куку с языком
+    // Устанавливаем куку с языком всегда (даже если уже есть)
     const response = NextResponse.next();
     response.cookies.set('galaxy_wheel_language', language, { path: '/', maxAge: 60 * 60 * 24 * 30 });
     return response;
