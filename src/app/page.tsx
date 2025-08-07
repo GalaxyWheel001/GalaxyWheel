@@ -93,6 +93,7 @@ export default function HomePage() {
       if (locationData.language && i18n.language !== locationData.language) {
         await i18n.changeLanguage(locationData.language);
         localStorage.setItem('galaxy_wheel_language', locationData.language);
+        document.cookie = `galaxy_wheel_language=${locationData.language}; path=/; max-age=2592000`;
       }
 
       // Обновляем статус спина

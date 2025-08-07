@@ -67,8 +67,9 @@ i18n
     ns: ['common'],
 
     detection: {
-      order: ['localStorage', 'navigator', 'htmlTag'],
-      caches: ['localStorage'],
+      order: ['cookie', 'localStorage', 'navigator', 'htmlTag'],
+      caches: ['cookie', 'localStorage'],
+      lookupCookie: 'galaxy_wheel_language',
       lookupLocalStorage: 'galaxy_wheel_language'
     },
 
