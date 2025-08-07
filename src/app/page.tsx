@@ -8,6 +8,8 @@ import { WheelOfFortune } from '@/components/wheel/WheelOfFortune';
 import { SpinTimer } from '@/components/wheel/SpinTimer';
 import { CosmicDecorations } from '@/components/wheel/CosmicDecorations';
 import { ShareSpin } from '@/components/wheel/ShareSpin';
+import SpinResult from '@/components/wheel/SpinResult';
+import SupportChat from '@/components/wheel/SupportChat';
 import { detectUserLocation } from '@/utils/geolocation';
 import { useSound } from '@/hooks/useSound';
 import { useOptimizedSpin } from '@/hooks/useOptimizedSpin';
@@ -17,11 +19,6 @@ import { getCurrencyRate, getCurrencySymbol } from '@/utils/currencies';
 import type { GeolocationData, SpinResult as SpinResultType } from '@/types';
 import '../utils/i18n';
 import { getUserId, isNewUser } from '@/utils/userId';
-import { lazy, Suspense } from 'react';
-
-// Lazy loaded components
-const SpinResultComponent = lazy(() => import('@/components/wheel/SpinResult'));
-const SupportChatComponent = lazy(() => import('@/components/wheel/SupportChat'));
 
 // Simple loading component for SSR
 function LoadingScreen() {
@@ -225,24 +222,20 @@ export default function HomePage() {
       {/* Spin Result Modal */}
       <AnimatePresence>
         {spinResult && (
-          <Suspense fallback={<div className="loading-spinner">Loading...</div>}>
-            <SpinResultComponent
-              result={spinResult}
-              onClose={() => setSpinResult(null)}
-              currency={selectedCurrency}
-            />
-          </Suspense>
+          <SpinResult
+            result={spinResult}
+            onClose={() => setSpinResult(null)}
+            currency={selectedCurrency}
+          />
         )}
       </AnimatePresence>
 
       {/* Support Chat */}
       {showSupport && (
-        <Suspense fallback={<div className="loading-spinner">Loading...</div>}>
-          <SupportChatComponent
-            isOpen={showSupport}
-            onClose={() => setShowSupport(false)}
-          />
-        </Suspense>
+        <SupportChat
+          isOpen={showSupport}
+          onClose={() => setShowSupport(false)}
+        />
       )}
 
       {/* Share Spin */}
