@@ -187,8 +187,8 @@ function getLanguageByCountry(countryCode: string): SupportedLanguage {
     'BO': 'es', 'PY': 'es', 'UY': 'es', 'GY': 'en', 'SR': 'nl', 'GF': 'fr', 'FK': 'en',
     
     // Азия
-    'JP': 'ja', 'CN': 'zh', 'TW': 'zh', 'HK': 'zh', 'MO': 'zh', 'KR': 'ko', 'VN': 'vi',
-    'TH': 'th', 'MY': 'ms', 'ID': 'id', 'PH': 'fil', 'SG': 'en', 'BN': 'ms', 'KH': 'km',
+    'JP': 'ja', 'CN': 'zh', 'TW': 'zh', 'HK': 'zh', 'MO': 'zh', 'KR': 'kr', 'VN': 'en',
+    'TH': 'th', 'MY': 'en', 'ID': 'id', 'PH': 'en', 'SG': 'en', 'BN': 'en', 'KH': 'km',
     'LA': 'lo', 'MM': 'my', 'BD': 'bn', 'LK': 'si', 'NP': 'ne', 'BT': 'dz', 'MV': 'dv',
     'IN': 'hi', 'PK': 'ur', 'AF': 'ps', 'IR': 'fa', 'IQ': 'ar', 'SY': 'ar', 'LB': 'ar',
     'JO': 'ar', 'PS': 'ar', 'IL': 'he', 'SA': 'ar', 'AE': 'ar', 'QA': 'ar', 'KW': 'ar',
@@ -198,11 +198,11 @@ function getLanguageByCountry(countryCode: string): SupportedLanguage {
     'EG': 'ar', 'LY': 'ar', 'TN': 'ar', 'DZ': 'ar', 'MA': 'ar', 'NG': 'en', 'GH': 'en',
     'KE': 'sw', 'UG': 'en', 'TZ': 'sw', 'ZM': 'en', 'MW': 'en', 'BW': 'en', 'NA': 'en',
     'SZ': 'en', 'LS': 'en', 'MU': 'en', 'SC': 'en', 'KM': 'ar', 'DJ': 'ar', 'ET': 'am',
-    'SD': 'ar', 'SS': 'en', 'ER': 'ti', 'SO': 'so', 'RW': 'rw', 'BI': 'rn', 'CD': 'fr',
+    'SD': 'ar', 'SS': 'en', 'ER': 'ti', 'SO': 'so', 'RW': 'rw', 'BI': 'fr', 'CD': 'fr',
     'CG': 'fr', 'GA': 'fr', 'GQ': 'es', 'CM': 'fr', 'CF': 'fr', 'TD': 'ar', 'GN': 'fr',
     'SL': 'en', 'LR': 'en', 'GM': 'en', 'SN': 'fr', 'CI': 'fr', 'BF': 'fr', 'ML': 'fr',
     'NE': 'fr', 'TG': 'fr', 'BJ': 'fr', 'GW': 'pt', 'CV': 'pt', 'ST': 'pt', 'AO': 'pt',
-    'MZ': 'pt', 'ZW': 'en', 'ZA': 'af', 'MG': 'mg',
+    'MZ': 'pt', 'ZW': 'en', 'ZA': 'af', 'MG': 'fr',
     
     // Океания
     'AU': 'en', 'NZ': 'en', 'FJ': 'en', 'PG': 'en', 'SB': 'en', 'VU': 'en', 'NC': 'fr',
