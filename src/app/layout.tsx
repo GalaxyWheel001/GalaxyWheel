@@ -82,15 +82,15 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  // Получаем язык из куки SSR
   let lang = 'en';
   try {
-    lang = cookies().get('galaxy_wheel_language')?.value || 'en';
+    const cookieStore = await cookies();
+    lang = cookieStore.get('galaxy_wheel_language')?.value || 'en';
   } catch {}
   return (
     <html lang={lang} className={`${geistSans.variable} ${geistMono.variable}`}>
