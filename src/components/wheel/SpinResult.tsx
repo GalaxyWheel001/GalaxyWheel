@@ -126,7 +126,7 @@ function SpinResult({ result, onClose, currency }: SpinResultProps) {
         <div className="space-y-3">
           {/* Main Casino Link */}
           <a
-            href={`https://galaxycasino.bet?utm_source=galaxy_wheel&utm_medium=bonus&utm_campaign=spin_result&amount=${encodeURIComponent(localAmount)}&currency=${encodeURIComponent(currency)}&promocode=${encodeURIComponent(result.promocode)}`}
+            href={`https://casino-galaxy.bet?utm_source=galaxy_wheel&utm_medium=bonus&utm_campaign=spin_result&amount=${encodeURIComponent(localAmount)}&currency=${encodeURIComponent(currency)}&promocode=${encodeURIComponent(result.promocode)}`}
             className="w-full bg-gradient-to-r from-green-500 to-emerald-600 text-white py-3 px-4 rounded-lg font-bold flex items-center justify-center gap-2 hover:from-green-600 hover:to-emerald-700 transition-all duration-300"
             target="_blank"
             rel="noopener noreferrer"

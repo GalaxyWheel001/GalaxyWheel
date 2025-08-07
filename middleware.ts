@@ -90,7 +90,7 @@ export async function middleware(request: NextRequest) {
     
     // Добавляем дополнительные заголовки если есть
     if (config.headers) {
-      Object.entries(config.headers).forEach(([key, value]) => {
+      Object.entries(config.headers as Record<string, string>).forEach(([key, value]) => {
         response.headers.set(key, value);
       });
     }
