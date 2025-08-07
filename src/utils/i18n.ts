@@ -49,9 +49,9 @@ function getInitialLanguage() {
     // На клиенте читаем из localStorage или куки
     return localStorage.getItem('galaxy_wheel_language') ||
       (document.cookie.match(/galaxy_wheel_language=([^;]+)/)?.[1]) || undefined;
-  } else if (typeof global !== 'undefined' && (global as any).initialLanguage) {
+  } else if (typeof global !== 'undefined' && (global as { initialLanguage?: string }).initialLanguage) {
     // На сервере можно пробросить initialLanguage через глобал (если нужно)
-    return (global as any).initialLanguage;
+    return (global as { initialLanguage?: string }).initialLanguage;
   }
   return undefined;
 }

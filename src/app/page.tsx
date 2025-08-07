@@ -115,7 +115,7 @@ export default function HomePage() {
     if (cookieLang && i18n.language !== cookieLang) {
       i18n.changeLanguage(cookieLang);
     }
-  }, [initializeApp]);
+  }, [initializeApp, i18n]);
 
   const handleSpinResult = (result: SpinResultType) => {
     setSpinResult(result);
