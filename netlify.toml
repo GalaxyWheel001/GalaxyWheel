@@ -1,28 +1,28 @@
-[images]
-remote_images = [
-  "https://source.unsplash.com/.*",
-  "https://images.unsplash.com/.*",
-  "https://ext.same-assets.com/.*",
-  "https://ugc.same-assets.com/.*"
-]
-
 [build]
-command = "npm ci --legacy-peer-deps && npm run build"
-publish = ".next"
-
-[build.environment]
-NETLIFY_NEXT_PLUGIN_SKIP = "true"
-TELEGRAM_BOT_TOKEN = "YOUR_BOT_TOKEN_HERE"
-TELEGRAM_CHAT_ID = "YOUR_CHAT_ID_HERE"
-NPM_FLAGS = "--legacy-peer-deps"
-NODE_VERSION = "18.18.0"
-NEXT_TELEMETRY_DISABLED = "1"
-NODE_OPTIONS = "--max-old-space-size=4096"
+  command = "npm ci --legacy-peer-deps && npm run build"
+  publish = ".next"
 
 [[plugins]]
-package = "@netlify/plugin-nextjs"
+  package = "@netlify/plugin-nextjs"
+
+[images]
+  remote_images = [
+    "https://source.unsplash.com/.*",
+    "https://images.unsplash.com/.*",
+    "https://ext.same-assets.com/.*",
+    "https://ugc.same-assets.com/.*"
+  ]
+
+[build.environment]
+  NETLIFY_NEXT_PLUGIN_SKIP = "true"
+  TELEGRAM_BOT_TOKEN = "YOUR_BOT_TOKEN_HERE"
+  TELEGRAM_CHAT_ID = "YOUR_CHAT_ID_HERE"
+  NPM_FLAGS = "--legacy-peer-deps"
+  NODE_VERSION = "18.18.0"
+  NEXT_TELEMETRY_DISABLED = "1"
+  NODE_OPTIONS = "--max-old-space-size=4096"
 
 [[redirects]]
-from = "/*"
-to = "/"
-status = 200
+  from = "/*"
+  to = "/"
+  status = 200
