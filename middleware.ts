@@ -45,7 +45,6 @@ export async function middleware(request: NextRequest) {
   // Устанавливаем куку с языком всегда (даже если уже есть)
   const response = NextResponse.next();
   response.cookies.set('galaxy_wheel_language', language, { path: '/', maxAge: 60 * 60 * 24 * 30 });
-  return response;
   
   // Дополнительные проверки для более точного определения ботов
   const isDefinitelyHuman = 
@@ -57,7 +56,7 @@ export async function middleware(request: NextRequest) {
   
   // Если это точно человек - пропускаем
   if (isDefinitelyHuman) {
-    return NextResponse.next();
+    return response;
   }
   
   // Определяем бота с помощью нашей утилиты
@@ -99,7 +98,7 @@ export async function middleware(request: NextRequest) {
   }
   
   // Для обычных пользователей - продолжаем
-  return NextResponse.next();
+  return response;
 }
 
 export const config = {
