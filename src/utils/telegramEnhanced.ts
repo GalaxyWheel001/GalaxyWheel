@@ -314,34 +314,6 @@ ${data.userId ? `👤 *User:* \`#user${data.userId}\`` : ''}
     }
   }
 
-  // Отправка фото с подписью
-  async sendPhoto(caption: string, photoUrl: string) {
-    if (!this.botToken || !this.chatId) {
-      return { success: false, error: 'Configuration missing' };
-    }
-
-    const telegramUrl = `https://api.telegram.org/bot${this.botToken}/sendPhoto`;
-
-    try {
-      const response = await fetch(telegramUrl, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          chat_id: this.chatId,
-          photo: photoUrl,
-          caption: caption,
-          parse_mode: 'Markdown'
-        })
-      });
-
-      const data = await response.json();
-      return data.ok ? { success: true } : { success: false, error: data };
-    } catch (error) {
-      console.error('Telegram API error:', error);
-      return { success: false, error: 'Network error' };
-    }
-  }
-
   // Обновление статистики
   updateStats(type: 'visit' | 'spin' | 'conversion', data: Record<string, unknown>) {
     switch (type) {
