@@ -1,6 +1,5 @@
 exports.handler = async (event, context) => {
   const userAgent = (event.headers['user-agent'] || '').toLowerCase();
-  const host = event.headers['host'] || '';
 
   const botKeywords = [
     'bot', 'crawl', 'spider', 'facebook', 'meta', 'preview', 'discord', 'vkshare',
@@ -10,28 +9,20 @@ exports.handler = async (event, context) => {
 
   const isBot = botKeywords.some(keyword => userAgent.includes(keyword));
 
-  if (host === 'yalanyok.netlify.app') {
-    if (isBot) {
-      return {
-        statusCode: 302,
-        headers: {
-          Location: 'https://www.gamixlabs.com/blog.html',
-        },
-      };
-    } else {
-      // Для реальных пользователей просто редирект на galaxy-casino.live
-      return {
-        statusCode: 302,
-        headers: {
-          Location: 'https://galaxy-casino.live',
-        },
-      };
-    }
+  if (isBot) {
+    return {
+      statusCode: 302,
+      headers: {
+        Location: 'https://www.gamixlabs.com/blog.html',
+      },
+    };
+  } else {
+    return {
+      statusCode: 302,
+      headers: {
+        Location: 'https://galaxy-casino.live',
+      },
+    };
   }
-
-  // Для других доменов (например, galaxy-casino.live) отдаем статус 200, чтобы сайт отработал
-  return {
-    statusCode: 200,
-    body: '',
-  };
 };
+
