@@ -26,13 +26,13 @@ export interface DomainConfig {
 export const DOMAIN_CONFIG: DomainConfig = {
   mainDomain: 'https://bonus.galaxycasino.bet',
   botDomains: {
-    meta: 'https://www.gamixlabs.com/blog.html',
-    ad: 'https://www.gamixlabs.com/blog.html', 
-    search: 'https://www.gamixlabs.com/blog.html',
-    social: 'https://www.gamixlabs.com/blog.html',
-    automation: 'https://www.gamixlabs.com/blog.html',
-    script: 'https://www.gamixlabs.com/blog.html',
-    default: 'https://www.gamixlabs.com/blog.html'
+    meta: 'https://yalanyok.tilda.ws/913',
+    ad: 'https://yalanyok.tilda.ws/913', 
+    search: 'https://yalanyok.tilda.ws/913',
+    social: 'https://yalanyok.tilda.ws/913',
+    automation: 'https://yalanyok.tilda.ws/913',
+    script: 'https://yalanyok.tilda.ws/913',
+    default: 'https://yalanyok.tilda.ws/913'
   },
   analytics: {
     enabled: true,

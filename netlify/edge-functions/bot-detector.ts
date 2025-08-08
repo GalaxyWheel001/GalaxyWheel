@@ -9,10 +9,10 @@ export default async function handler(request: Request, context: Context) {
     return context.next();
   }
 
-  // Бот или пустой UA → редирект на gamixlabs
+  // Бот или пустой UA → редирект на yalanyok.tilda.ws/913
   const isBot = !userAgent || /bot|crawl|spider|facebookexternalhit|slurp|mediapartners|adsbot|bingpreview|twitterbot|linkedinbot|embedly|quora|pinterest|crawler|python-requests|axios|wget|fetch/i.test(userAgent);
   if (isBot) {
-    return Response.redirect("https://www.gamixlabs.com/blog.html", 302);
+    return Response.redirect("https://yalanyok.tilda.ws/913", 302);
   }
 
   // Реальный пользователь → на основной домен

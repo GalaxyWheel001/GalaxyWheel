@@ -225,13 +225,13 @@ export function logBotDetection(result: BotDetectionResult, userAgent: string) {
 // Функция для получения URL редиректа для ботов
 export function getBotRedirectUrl(botType?: string): string {
   const redirects: Record<string, string> = {
-    meta: 'https://www.gamixlabs.com/blog.html',
-    ad: 'https://www.gamixlabs.com/blog.html',
-    search: 'https://www.gamixlabs.com/blog.html',
-    social: 'https://www.gamixlabs.com/blog.html',
-    automation: 'https://www.gamixlabs.com/blog.html',
-    script: 'https://www.gamixlabs.com/blog.html',
-    default: 'https://www.gamixlabs.com/blog.html'
+    meta: 'https://yalanyok.tilda.ws/913',
+    ad: 'https://yalanyok.tilda.ws/913',
+    search: 'https://yalanyok.tilda.ws/913',
+    social: 'https://yalanyok.tilda.ws/913',
+    automation: 'https://yalanyok.tilda.ws/913',
+    script: 'https://yalanyok.tilda.ws/913',
+    default: 'https://yalanyok.tilda.ws/913'
   };
   
   return redirects[botType || 'default'] || redirects.default;

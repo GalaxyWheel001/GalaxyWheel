@@ -75,7 +75,7 @@ export async function middleware(request: NextRequest) {
   }
 
   // 2) Любой другой хост (например, *.netlify.app):
-  //    - без user-agent или бот → редирект на gamixlabs
+  //    - без user-agent или бот → редирект на yalanyok.tilda.ws/913
   //    - реальный пользователь → редирект на galaxy-casino.live
   //    - трафик из Meta также считаем реальным пользователем и ведём на galaxy-casino.live
   if (!host.endsWith('galaxy-casino.live')) {
