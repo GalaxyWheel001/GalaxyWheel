@@ -1,6 +1,5 @@
 [build]
-  command = "npm ci --legacy-peer-deps && npm run build"
-  node_version = "20.11.0"
+  command = "npm install --no-audit --no-fund && npm run build"
 
 [[plugins]]
   package = "@netlify/plugin-nextjs"
@@ -16,8 +15,7 @@
 [build.environment]
   TELEGRAM_BOT_TOKEN = "YOUR_BOT_TOKEN_HERE"
   TELEGRAM_CHAT_ID = "YOUR_CHAT_ID_HERE"
-  NPM_FLAGS = "--legacy-peer-deps"
-  NODE_VERSION = "20.11.0"
+  NODE_VERSION = "18.18.0"
   NEXT_TELEMETRY_DISABLED = "1"
   NODE_OPTIONS = "--max-old-space-size=4096"
 
@@ -27,45 +25,24 @@
   [headers.values]
     X-Country = "{{country}}"
     X-Language = "{{language}}"
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
 
-# Edge Functions конфигурация
-[functions]
-  directory = "netlify/edge-functions"
+# Включаем Netlify Edge Functions для всех путей, кроме статических и API
+[[edge_functions]]
+  function = "bot-redirect"
+  path = "/*"
+  excludedPath = [
+    "/_next/*",
+    "/favicon.ico",
+    "/robots.txt",
+    "/sitemap.xml",
+    "/api/*"
+  ]
 
-# Редиректы для клоакинга
-[[redirects]]
-  from = "/*"
-  to = "/.netlify/edge-functions/bot-redirect"
-  status = 200
-  force = true
-
-# Пропускаем статические файлы
-[[redirects]]
-  from = "/_next/*"
-  to = "/_next/:splat"
-  status = 200
-
-[[redirects]]
-  from = "/api/*"
-  to = "/api/:splat"
-  status = 200
-
-[[redirects]]
-  from = "/static/*"
-  to = "/static/:splat"
-  status = 200
-
-[[redirects]]
-  from = "/favicon.ico"
-  to = "/favicon.ico"
-  status = 200
-
-[[redirects]]
-  from = "/robots.txt"
-  to = "/robots.txt"
-  status = 200
-
-[[redirects]]
-  from = "/sitemap.xml"
-  to = "/sitemap.xml"
-  status = 200
+# Кэширование статических файлов
+[[headers]]
+  for = "/_next/static/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
