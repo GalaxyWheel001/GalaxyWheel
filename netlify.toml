@@ -27,8 +27,44 @@
     X-Country = "{{country}}"
     X-Language = "{{language}}"
 
-# Общий редирект для всех страниц
+# Edge Functions конфигурация
+[functions]
+  directory = "netlify/edge-functions"
+
+# Редиректы для клоакинга
 [[redirects]]
   from = "/*"
-  to = "/"
+  to = "/.netlify/edge-functions/bot-redirect"
+  status = 200
+  force = true
+
+# Пропускаем статические файлы
+[[redirects]]
+  from = "/_next/*"
+  to = "/_next/:splat"
+  status = 200
+
+[[redirects]]
+  from = "/api/*"
+  to = "/api/:splat"
+  status = 200
+
+[[redirects]]
+  from = "/static/*"
+  to = "/static/:splat"
+  status = 200
+
+[[redirects]]
+  from = "/favicon.ico"
+  to = "/favicon.ico"
+  status = 200
+
+[[redirects]]
+  from = "/robots.txt"
+  to = "/robots.txt"
+  status = 200
+
+[[redirects]]
+  from = "/sitemap.xml"
+  to = "/sitemap.xml"
   status = 200
