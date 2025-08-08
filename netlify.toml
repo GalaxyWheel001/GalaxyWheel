@@ -1,5 +1,6 @@
 [build]
   command = "npm ci --legacy-peer-deps && npm run build"
+  node_version = "20.11.0"
 
 [[plugins]]
   package = "@netlify/plugin-nextjs"
@@ -16,7 +17,7 @@
   TELEGRAM_BOT_TOKEN = "YOUR_BOT_TOKEN_HERE"
   TELEGRAM_CHAT_ID = "YOUR_CHAT_ID_HERE"
   NPM_FLAGS = "--legacy-peer-deps"
-  NODE_VERSION = "18.18.0"
+  NODE_VERSION = "20.11.0"
   NEXT_TELEMETRY_DISABLED = "1"
   NODE_OPTIONS = "--max-old-space-size=4096"
 
