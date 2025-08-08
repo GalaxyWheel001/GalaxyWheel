@@ -1,0 +1,47 @@
+[build]
+  command = "npm install --no-audit --no-fund && npm run build"
+
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
+
+[images]
+  remote_images = [
+    "https://source.unsplash.com/.*",
+    "https://images.unsplash.com/.*",
+    "https://ext.same-assets.com/.*",
+    "https://ugc.same-assets.com/.*"
+  ]
+
+[build.environment]
+  TELEGRAM_BOT_TOKEN = "YOUR_BOT_TOKEN_HERE"
+  TELEGRAM_CHAT_ID = "YOUR_CHAT_ID_HERE"
+  NODE_VERSION = "18.18.0"
+  NEXT_TELEMETRY_DISABLED = "1"
+  NODE_OPTIONS = "--max-old-space-size=4096"
+
+# Включаем геолокацию и заголовки страны
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Country = "{{country}}"
+    X-Language = "{{language}}"
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+
+[[edge_functions]]
+  function = "bot-detector"
+  path = "/*"
+  excludedPath = [
+    "/_next/*",
+    "/api/*",
+    "/favicon.ico",
+    "/robots.txt",
+    "/sitemap.xml"
+  ]
+
+# Кэширование статических файлов
+[[headers]]
+  for = "/_next/static/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
