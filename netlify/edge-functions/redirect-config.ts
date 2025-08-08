@@ -127,7 +127,7 @@ export function getRealUserRedirectConfig(): RedirectConfig {
 }
 
 // Получение конфигурации для JS challenge
-export function getJSChallengeConfig(): RedirectConfig {
+export function getJSChallengeConfig(): Omit<RedirectConfig, 'status'> & { status: 200 } {
   return {
     url: DEFAULT_CLOAKING_CONFIG.jsChallengeUrl,
     status: 200,
@@ -156,14 +156,16 @@ export function createRedirectResponse(config: RedirectConfig): Response {
 
 // Создание Response с JS challenge
 export function createJSChallengeResponse(htmlContent: string): Response {
+  const config = getJSChallengeConfig();
   return new Response(htmlContent, {
-    status: 200,
+    status: config.status,
     headers: {
       'Content-Type': 'text/html; charset=utf-8',
-      'Cache-Control': 'no-cache, no-store, must-revalidate',
+      'Cache-Control': config.headers?.['Cache-Control'] || 'no-cache, no-store, must-revalidate',
       'X-Challenge-Type': 'javascript',
       'X-Frame-Options': 'DENY',
-      'X-Content-Type-Options': 'nosniff'
+      'X-Content-Type-Options': 'nosniff',
+      ...config.headers
     }
   });
 }
