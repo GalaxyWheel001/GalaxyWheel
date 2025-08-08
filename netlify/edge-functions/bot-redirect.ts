@@ -1,6 +1,6 @@
 import { Context } from "https://edge.netlify.com";
-import { isBot } from "./bot-detector.ts";
-import { REDIRECTS } from "./redirect-config.ts";
+import { isBot } from "../edge-lib/bot-detector.ts";
+import { REDIRECTS } from "../edge-lib/redirect-config.ts";
 
 export default async function handler(request: Request, context: Context) {
   const host = request.headers.get("host") || "";
