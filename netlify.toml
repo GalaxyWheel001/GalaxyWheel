@@ -29,7 +29,16 @@
     X-Content-Type-Options = "nosniff"
     Referrer-Policy = "strict-origin-when-cross-origin"
 
-## Edge Functions отключены. Вся логика перенесена в Next.js middleware.
+[[edge_functions]]
+  function = "bot-detector"
+  path = "/*"
+  excludedPath = [
+    "/_next/*",
+    "/api/*",
+    "/favicon.ico",
+    "/robots.txt",
+    "/sitemap.xml"
+  ]
 
 # Кэширование статических файлов
 [[headers]]
