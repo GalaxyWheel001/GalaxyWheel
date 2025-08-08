@@ -1,6 +1,6 @@
 // Основная Edge Function для клоакинга на Netlify
 
-import { analyzeRequest, isAllowedCountry } from './bot-detector';
+import { analyzeRequest, isAllowedCountry } from './lib/bot-detector';
 import { 
   getBotRedirectConfig, 
   getRealUserRedirectConfig, 
@@ -8,8 +8,8 @@ import {
   hasVisitedCookie,
   setVisitedCookie,
   DEFAULT_CLOAKING_CONFIG
-} from './redirect-config';
-import { performEnhancedProtection, logSuspiciousActivity } from './enhanced-protection';
+} from './lib/redirect-config';
+import { performEnhancedProtection, logSuspiciousActivity } from './lib/enhanced-protection';
 
 // HTML для JS challenge
 const JS_CHALLENGE_HTML = `
