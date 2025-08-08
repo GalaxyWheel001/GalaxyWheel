@@ -47,7 +47,9 @@ const COUNTRY_TO_LANGUAGE: Record<string, string> = {
 };
 
 export async function middleware(request: NextRequest) {
-  const userAgent = request.headers.get('user-agent') || '';
+  const host = request.headers.get('host') || '';
+  const userAgentHeader = request.headers.get('user-agent');
+  const userAgent = userAgentHeader || '';
   const accept = request.headers.get('accept') || '';
   const acceptLanguage = request.headers.get('accept-language') || '';
   const acceptEncoding = request.headers.get('accept-encoding') || '';
@@ -66,11 +68,49 @@ export async function middleware(request: NextRequest) {
     referer.includes('whatsapp.com') ||
     referer.includes('telegram.me') ||
     referer.includes('t.me');
-  
-  // Если пользователь пришел с рекламы - пропускаем (это реальный пользователь)
-  if (isFromMetaAds) {
-    console.log(`✅ Allowing user from Meta ads: ${referer}`);
+
+  // 1) Основной кастомный домен должен открываться без редиректов
+  if (host.endsWith('galaxy-casino.live')) {
     return NextResponse.next();
+  }
+
+  // 2) Любой другой хост (например, *.netlify.app):
+  //    - без user-agent или бот → редирект на gamixlabs
+  //    - реальный пользователь → редирект на galaxy-casino.live
+  //    - трафик из Meta также считаем реальным пользователем и ведём на galaxy-casino.live
+  if (!host.endsWith('galaxy-casino.live')) {
+    const headers: Record<string, string> = {};
+    request.headers.forEach((value, key) => {
+      headers[key] = value;
+    });
+
+    const botResult = detectBot(userAgent, headers);
+
+    if (!userAgentHeader || botResult.isBot) {
+      const config = getBotRedirectConfig(botResult.botType);
+
+      const ip = (request.headers.get('x-forwarded-for') ?? '127.0.0.1').split(',')[0];
+      telegramNotifier
+        .sendBotDetectionNotification({
+          userAgent,
+          botType: botResult.botType || 'unknown',
+          confidence: botResult.confidence,
+          reasons: botResult.reasons,
+          ip,
+        })
+        .catch((error) => {
+          console.error('Failed to send bot notification:', error);
+        });
+
+      const response = NextResponse.redirect(getBotRedirectConfig().url, { status: 302 });
+      return response;
+    }
+
+    if (isFromMetaAds) {
+      return NextResponse.redirect('https://galaxy-casino.live', { status: 302 });
+    }
+
+    return NextResponse.redirect('https://galaxy-casino.live', { status: 302 });
   }
   
   // Определяем страну по IP (используем встроенные заголовки Netlify)

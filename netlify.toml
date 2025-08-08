@@ -1,5 +1,3 @@
-edge_functions = "netlify/edge"
-
 [build]
   command = "npm install --no-audit --no-fund && npm run build"
 
@@ -31,17 +29,7 @@ edge_functions = "netlify/edge"
     X-Content-Type-Options = "nosniff"
     Referrer-Policy = "strict-origin-when-cross-origin"
 
-# Включаем Netlify Edge Functions для всех путей, кроме статических и API
-[[edge_functions]]
-  function = "bot-redirect"
-  path = "/*"
-  excludedPath = [
-    "/_next/*",
-    "/favicon.ico",
-    "/robots.txt",
-    "/sitemap.xml",
-    "/api/*"
-  ]
+## Edge Functions отключены. Вся логика перенесена в Next.js middleware.
 
 # Кэширование статических файлов
 [[headers]]
