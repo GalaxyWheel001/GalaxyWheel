@@ -1,3 +1,5 @@
+edge_functions = "netlify/edge"
+
 [build]
   command = "npm install --no-audit --no-fund && npm run build"
 

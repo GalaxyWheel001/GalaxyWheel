@@ -32,6 +32,7 @@
   ],
   "exclude": [
     "node_modules",
-    "netlify/edge-functions/**"
+    "netlify/edge-functions/**",
+    "netlify/edge/**"
   ]
 }
