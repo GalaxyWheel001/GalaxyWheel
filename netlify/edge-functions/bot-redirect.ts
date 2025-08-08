@@ -104,7 +104,7 @@ const JS_CHALLENGE_HTML = `
             const progressBar = document.getElementById('progressBar');
             const status = document.getElementById('status');
             
-            const steps = [
+            const steps: Array<{progress: number, text: string}> = [
                 { progress: 20, text: 'Checking browser compatibility...' },
                 { progress: 40, text: 'Verifying JavaScript execution...' },
                 { progress: 60, text: 'Validating user interaction...' },

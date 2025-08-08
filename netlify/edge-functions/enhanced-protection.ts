@@ -8,14 +8,17 @@ export interface ProtectionResult {
 }
 
 // Список подозрительных IP (опционально)
-const SUSPICIOUS_IPS = [
+const SUSPICIOUS_IPS: string[] = [
   // Добавьте сюда IP адреса известных сканеров
   // '1.2.3.4',
   // '5.6.7.8'
 ];
 
 // Список подозрительных паттернов в заголовках
-const SUSPICIOUS_HEADERS = {
+const SUSPICIOUS_HEADERS: {
+  missing: string[];
+  suspicious: Record<string, string[]>;
+} = {
   // Отсутствие стандартных заголовков
   missing: ['accept', 'accept-language', 'accept-encoding', 'user-agent'],
   
@@ -74,7 +77,7 @@ export function analyzeHeaders(headers: Record<string, string>): ProtectionResul
   }
   
   // Проверка на отсутствие современных заголовков браузера
-  const modernHeaders = ['sec-ch-ua', 'sec-fetch-dest', 'sec-fetch-mode', 'sec-fetch-site'];
+  const modernHeaders: string[] = ['sec-ch-ua', 'sec-fetch-dest', 'sec-fetch-mode', 'sec-fetch-site'];
   const hasModernHeaders = modernHeaders.some(header => headers[header]);
   
   if (!hasModernHeaders) {
@@ -140,7 +143,7 @@ export function analyzeRequestBehavior(request: Request): ProtectionResult {
   }
   
   // Проверка на подозрительные пути
-  const suspiciousPaths = ['/admin', '/wp-admin', '/phpmyadmin', '/cpanel', '/.env', '/config'];
+  const suspiciousPaths: string[] = ['/admin', '/wp-admin', '/phpmyadmin', '/cpanel', '/.env', '/config'];
   for (const path of suspiciousPaths) {
     if (url.pathname.toLowerCase().includes(path)) {
       reasons.push(`Suspicious path: ${url.pathname}`);
@@ -149,7 +152,7 @@ export function analyzeRequestBehavior(request: Request): ProtectionResult {
   }
   
   // Проверка на подозрительные параметры
-  const suspiciousParams = ['sql', 'script', 'eval', 'exec', 'system'];
+  const suspiciousParams: string[] = ['sql', 'script', 'eval', 'exec', 'system'];
   for (const param of suspiciousParams) {
     if (url.search.toLowerCase().includes(param)) {
       reasons.push(`Suspicious parameter: ${param}`);

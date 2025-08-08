@@ -18,10 +18,10 @@ export interface GeoIPResult {
 }
 
 // Список разрешенных стран
-const ALLOWED_COUNTRIES = ['AZ', 'RU', 'KZ', 'UA', 'BY', 'UZ', 'AM', 'GE', 'MD', 'RO', 'BG', 'HR', 'SI', 'SK', 'CZ', 'PL', 'HU', 'EE', 'LV', 'LT', 'MT', 'CY', 'GR', 'IT', 'ES', 'PT', 'FR', 'BE', 'NL', 'DE', 'AT', 'CH', 'LI', 'LU', 'MC', 'AD', 'GB', 'IE', 'IS', 'NO', 'SE', 'DK', 'FI', 'AL', 'MK', 'RS', 'ME', 'BA', 'XK', 'TR'];
+const ALLOWED_COUNTRIES: string[] = ['AZ', 'RU', 'KZ', 'UA', 'BY', 'UZ', 'AM', 'GE', 'MD', 'RO', 'BG', 'HR', 'SI', 'SK', 'CZ', 'PL', 'HU', 'EE', 'LV', 'LT', 'MT', 'CY', 'GR', 'IT', 'ES', 'PT', 'FR', 'BE', 'NL', 'DE', 'AT', 'CH', 'LI', 'LU', 'MC', 'AD', 'GB', 'IE', 'IS', 'NO', 'SE', 'DK', 'FI', 'AL', 'MK', 'RS', 'ME', 'BA', 'XK', 'TR'];
 
 // Известные боты
-const BOT_PATTERNS = {
+const BOT_PATTERNS: Record<string, string[]> = {
   // Поисковые боты
   search: [
     'googlebot', 'bingbot', 'yandex', 'baiduspider', 'sogou', 'duckduckbot', 
