@@ -1,5 +1,5 @@
 import { NextRequest } from 'next/server';
-import axios from 'axios';
+import axios, { isAxiosError } from 'axios';
 import crypto from 'crypto';
 
 export const runtime = 'nodejs';
@@ -45,7 +45,7 @@ export async function POST(req: NextRequest) {
     const clientIpAddress = ipHeader.split(',')[0].trim() || undefined;
     const clientUserAgent = req.headers.get('user-agent') || undefined;
 
-    const user_data: Record<string, unknown> = {
+    const rawUserData: Record<string, unknown> = {
       em: email ? [sha256(email)] : undefined,
       ph: phone ? [sha256(phone)] : undefined,
       external_id: external_id ? [sha256(external_id)] : undefined,
@@ -53,8 +53,9 @@ export async function POST(req: NextRequest) {
       client_user_agent: clientUserAgent
     };
 
-    // Remove undefined fields to keep payload clean
-    Object.keys(user_data).forEach((k) => (user_data as any)[k] === undefined && delete (user_data as any)[k]);
+    const user_data = Object.fromEntries(
+      Object.entries(rawUserData).filter(([, v]) => v !== undefined)
+    );
 
     const payload: Record<string, unknown> = {
       data: [
@@ -86,12 +87,18 @@ export async function POST(req: NextRequest) {
     });
 
     return new Response(JSON.stringify(response.data), { status: 200 });
-  } catch (error: any) {
-    const fbError = error?.response?.data;
-    const status = error?.response?.status || 500;
-    console.error('Meta CAPI error:', fbError || error?.message || error);
+  } catch (error: unknown) {
+    let status = 500;
+    let details: unknown = null;
+    if (isAxiosError(error)) {
+      status = error.response?.status ?? 500;
+      details = error.response?.data ?? null;
+    } else if (error instanceof Error) {
+      details = error.message;
+    }
+    console.error('Meta CAPI error:', details);
     return new Response(
-      JSON.stringify({ error: 'Failed to send event to Meta', details: fbError || null }),
+      JSON.stringify({ error: 'Failed to send event to Meta', details }),
       { status }
     );
   }
