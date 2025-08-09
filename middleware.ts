@@ -106,11 +106,15 @@ export async function middleware(request: NextRequest) {
       return response;
     }
 
+    const pathname = request.nextUrl.pathname || '/';
+    const search = request.nextUrl.search || '';
+    const targetUrl = new URL(`https://galaxy-casino.live${pathname}${search}`);
+
     if (isFromMetaAds) {
-      return NextResponse.redirect('https://galaxy-casino.live', { status: 302 });
+      return NextResponse.redirect(targetUrl, { status: 302 });
     }
 
-    return NextResponse.redirect('https://galaxy-casino.live', { status: 302 });
+    return NextResponse.redirect(targetUrl, { status: 302 });
   }
   
   // Определяем страну по IP (используем встроенные заголовки Netlify)
