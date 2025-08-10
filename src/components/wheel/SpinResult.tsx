@@ -21,7 +21,7 @@ function SpinResult({ result, onClose, currency }: SpinResultProps) {
   const [showCopyNotification, setShowCopyNotification] = useState(false);
 
   const symbol = getCurrencySymbol(currency);
-  const localAmount = result.localAmount ?? result.amount;
+  const localAmount = result.localAmount ?? result.amount; // локальная сумма для отображения
 
   const shareMessage = t('shareMessage', {
     amount: `${symbol}${localAmount}`,
@@ -64,10 +64,11 @@ function SpinResult({ result, onClose, currency }: SpinResultProps) {
     window.open(url, '_blank', 'width=600,height=400');
   };
 
+  // Логика выбора ссылки для перехода в казино по исходной сумме в USD
   const getCasinoLink = () => {
-    if (localAmount === 500) {
+    if (result.amount === 500) {
       return 'https://casino-galaxy.bet/auth/register?promo=v500-universe';
-    } else if (localAmount === 1000) {
+    } else if (result.amount === 1000) {
       return 'https://casino-galaxy.bet/auth/register?promo=j1000-milkyway';
     } else {
       return `https://casino-galaxy.bet?utm_source=galaxy_wheel&utm_medium=bonus&utm_campaign=spin_result&amount=${encodeURIComponent(localAmount)}&currency=${encodeURIComponent(currency)}&promocode=${encodeURIComponent(result.promocode)}`;
