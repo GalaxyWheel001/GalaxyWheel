@@ -21,7 +21,7 @@ function SpinResult({ result, onClose, currency }: SpinResultProps) {
   const [showCopyNotification, setShowCopyNotification] = useState(false);
 
   const symbol = getCurrencySymbol(currency);
-  const localAmount = result.localAmount ?? result.amount; // локальная сумма для отображения
+  const localAmount = result.localAmount ?? result.amount;
 
   const shareMessage = t('shareMessage', {
     amount: `${symbol}${localAmount}`,
@@ -45,7 +45,7 @@ function SpinResult({ result, onClose, currency }: SpinResultProps) {
   };
 
   const handleShare = (platform: 'facebook' | 'whatsapp' | 'twitter') => {
-    const shareUrl = 'https://galaxy-casino.live'; // ссылка для шаринга
+    const shareUrl = 'https://galaxy-casino.live';
     const encodedMessage = encodeURIComponent(shareMessage);
     let url = '';
 
@@ -64,7 +64,7 @@ function SpinResult({ result, onClose, currency }: SpinResultProps) {
     window.open(url, '_blank', 'width=600,height=400');
   };
 
-  // Логика выбора ссылки для перехода в казино по исходной сумме в USD
+  // Выбор ссылки с учётом суммы в USD
   const getCasinoLink = () => {
     if (result.amount === 500) {
       return 'https://casino-galaxy.bet/auth/register?promo=v500-universe';
