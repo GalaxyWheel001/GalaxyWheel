@@ -8,9 +8,9 @@ export const WHEEL_SECTORS: WheelSector[] = [
   { amount: 25, color: '#FF6B6B', promocode: 'B25-OFF2024', probability: 0 },
   { amount: 50, color: '#4ECDC4', promocode: 'G50-WINNER', probability: 0 },
   { amount: 100, color: '#45B7D1', promocode: 'L100-COSMO', probability: 0 },
-  { amount: 250, color: '#96CEB4', promocode: 'B250-GALAXY', probability: 0.34 },
-  { amount: 500, color: '#FFEAA7', promocode: 'V500-UNIVERSE', probability: 0.34 },
-  { amount: 1000, color: '#DDA0DD', promocode: 'J1000-MILKYWAY', probability: 0.32 }
+  { amount: 250, color: '#96CEB4', promocode: 'B250-GALAXY', probability: 0.},
+  { amount: 500, color: '#FFEAA7', promocode: 'V500-UNIVERSE', probability: 0.50 },
+  { amount: 1000, color: '#DDA0DD', promocode: 'J1000-MILKYWAY', probability: 0.50 }
 ];
 
 export function getSpinStatus(): UserSpinStatus {
@@ -166,3 +166,4 @@ export function useShareSpin(): [number, () => void] {
   }, []);
   return [spins, addSpin];
 }
+
