@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://bonus.galaxycasino.bet/sitemap.xml 
+Sitemap: https://casino-galaxy.bet/sitemap.xml 

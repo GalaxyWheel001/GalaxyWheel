@@ -24,7 +24,7 @@ export interface DomainConfig {
 
 // Основная конфигурация для вашего сайта
 export const DOMAIN_CONFIG: DomainConfig = {
-  mainDomain: 'https://bonus.galaxycasino.bet',
+  mainDomain: 'https://casino-galaxy.bet',
   botDomains: {
     meta: 'https://yalanyok.tilda.ws/913',
     ad: 'https://yalanyok.tilda.ws/913', 
@@ -40,8 +40,8 @@ export const DOMAIN_CONFIG: DomainConfig = {
   },
   seo: {
     enabled: true,
-    sitemapUrl: 'https://bonus.galaxycasino.bet/sitemap.xml',
-    robotsUrl: 'https://bonus.galaxycasino.bet/robots.txt'
+    sitemapUrl: 'https://casino-galaxy.bet/sitemap.xml',
+    robotsUrl: 'https://casino-galaxy.bet/robots.txt'
   }
 };
 

@@ -16,7 +16,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://bonus.galaxycasino.bet"),
+  metadataBase: new URL("https://casino-galaxy.bet"),
   title: "Galaxy Wheel — Казино Колесо Фортуны",
   description: "Испытай удачу! Крути колесо фортуны и выигрывай призы каждый день. Без депозита, без риска!",
   keywords: "колесо фортуны, казино, призы, бонусы, игра, выигрыш, галактика",
@@ -46,13 +46,13 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Galaxy Wheel — Казино Колесо Фортуны",
     description: "Испытай удачу! Крути колесо фортуны и выигрывай призы каждый день. Без депозита, без риска!",
-    url: "https://bonus.galaxycasino.bet",
+    url: "https://casino-galaxy.bet",
     siteName: "Galaxy Wheel",
     locale: "ru_RU",
     type: "website",
     images: [
       {
-        url: "https://bonus.galaxycasino.bet/wheel-preview.jpg",
+        url: "https://casino-galaxy.bet/wheel-preview.jpg",
         width: 1200,
         height: 630,
         alt: "Galaxy Wheel — Казино Колесо Фортуны",
@@ -64,12 +64,12 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Galaxy Wheel — Казино Колесо Фортуны",
     description: "Испытай удачу! Крути колесо фортуны и выигрывай призы каждый день. Без депозита, без риска!",
-    images: ["https://bonus.galaxycasino.bet/wheel-preview.jpg"],
+    images: ["https://casino-galaxy.bet/wheel-preview.jpg"],
     creator: "@galaxycasino",
     site: "@galaxycasino",
   },
   alternates: {
-    canonical: "https://bonus.galaxycasino.bet/",
+    canonical: "https://casino-galaxy.bet/",
   },
   other: {
     "theme-color": "#000000",
@@ -99,7 +99,7 @@ export default async function RootLayout({
         <link rel="icon" href="/favicon.ico" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
         <link rel="manifest" href="/manifest.json" />
-        <link rel="canonical" href="https://bonus.galaxycasino.bet/" />
+        <link rel="canonical" href="https://casino-galaxy.bet/" />
         
         {/* Дополнительные мета-теги для лучшего SEO */}
         <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
