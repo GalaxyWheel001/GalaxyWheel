@@ -21,22 +21,13 @@ function SpinResult({ result, onClose, currency }: SpinResultProps) {
   const [showCopyNotification, setShowCopyNotification] = useState(false);
 
   const symbol = getCurrencySymbol(currency);
-  const localAmount = result.localAmount ?? result.amount; // fallback на amount, если localAmount нет
+  const localAmount = result.localAmount ?? result.amount;
 
   const shareMessage = t('shareMessage', {
     amount: `${symbol}${localAmount}`,
     currency,
     promocode: result.promocode
   });
-
-  const handleCopyResult = async () => {
-    try {
-      await navigator.clipboard.writeText(shareMessage);
-      alert(t('copied'));
-    } catch (error) {
-      console.error('Failed to copy:', error);
-    }
-  };
 
   const handleCopyPromocode = async () => {
     if (isCopied) return;
@@ -54,7 +45,7 @@ function SpinResult({ result, onClose, currency }: SpinResultProps) {
   };
 
   const handleShare = (platform: 'facebook' | 'whatsapp' | 'twitter') => {
-    const shareUrl = 'https://bonus.galaxycasino.bet';
+    const shareUrl = 'https://galaxy-casino.live'; // ссылка для шаринга
     const encodedMessage = encodeURIComponent(shareMessage);
     let url = '';
 
@@ -71,6 +62,16 @@ function SpinResult({ result, onClose, currency }: SpinResultProps) {
     }
 
     window.open(url, '_blank', 'width=600,height=400');
+  };
+
+  const getCasinoLink = () => {
+    if (localAmount === 500) {
+      return 'https://casino-galaxy.bet/auth/register?promo=v500-universe';
+    } else if (localAmount === 1000) {
+      return 'https://casino-galaxy.bet/auth/register?promo=j1000-milkyway';
+    } else {
+      return `https://casino-galaxy.bet?utm_source=galaxy_wheel&utm_medium=bonus&utm_campaign=spin_result&amount=${encodeURIComponent(localAmount)}&currency=${encodeURIComponent(currency)}&promocode=${encodeURIComponent(result.promocode)}`;
+    }
   };
 
   return (
@@ -126,7 +127,7 @@ function SpinResult({ result, onClose, currency }: SpinResultProps) {
         <div className="space-y-3">
           {/* Main Casino Link */}
           <a
-            href={`https://casino-galaxy.bet?utm_source=galaxy_wheel&utm_medium=bonus&utm_campaign=spin_result&amount=${encodeURIComponent(localAmount)}&currency=${encodeURIComponent(currency)}&promocode=${encodeURIComponent(result.promocode)}`}
+            href={getCasinoLink()}
             className="w-full bg-gradient-to-r from-green-500 to-emerald-600 text-white py-3 px-4 rounded-lg font-bold flex items-center justify-center gap-2 hover:from-green-600 hover:to-emerald-700 transition-all duration-300"
             target="_blank"
             rel="noopener noreferrer"
