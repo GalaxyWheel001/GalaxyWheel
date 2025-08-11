@@ -1,25 +1,26 @@
-import { NextResponse } from 'next/server';
+import { NextRequest } from 'next/server';
 import { telegramNotifier } from '@/utils/telegramEnhanced';
 
-export async function POST(req: Request) {
+export async function POST(req: NextRequest) {
   try {
     const data = await req.json();
     
     const result = await telegramNotifier.sendAlert({
-      type: data.type,
-      message: data.message,
+      type: data.type || 'system_error',
+      message: data.message || 'Alert triggered',
       threshold: data.threshold,
       current: data.current,
       ip: data.ip,
       count: data.count
     });
-
-    return NextResponse.json(result, { status: result.success ? 200 : 500 });
+    
+    if (result.success) {
+      return new Response(JSON.stringify({ success: true }), { status: 200 });
+    } else {
+      return new Response(JSON.stringify({ error: 'Failed to send alert' }), { status: 500 });
+    }
   } catch (error) {
-    console.error('Alert route error:', error);
-    return NextResponse.json(
-      { success: false, error: 'Internal server error' },
-      { status: 500 }
-    );
+    console.error('Alert error:', error);
+    return new Response(JSON.stringify({ error: 'Internal server error' }), { status: 500 });
   }
-}
+} 
