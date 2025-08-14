@@ -19,10 +19,17 @@ import type { GeolocationData, SpinResult as SpinResultType } from '@/types';
 import '../utils/i18n';
 import { getUserId, isNewUser } from '@/utils/userId';
 
-// Language toggle button with flag
-function LanguageToggle({ userLang, currentLang, onToggle }: { userLang: string, currentLang: string, onToggle: () => void }) {
+// Language toggle button
+function LanguageToggle({
+  userLang,
+  currentLang,
+  onToggle
+}: {
+  userLang: string;
+  currentLang: string;
+  onToggle: () => void;
+}) {
   const getFlagUrl = (lang: string) => {
-    // special case for English
     const code = lang === 'en' ? 'gb' : lang;
     return `https://flagcdn.com/w40/${code}.png`;
   };
@@ -112,16 +119,15 @@ export default function HomePage() {
         localStorage.setItem('galaxy_wheel_currency', locationData.currency);
       }
 
-      // Detect language
-      const browserLang = locationData.language || navigator.language.split('-')[0];
+      // Detect user language
+      const browserLang = locationData.language || navigator.language.split('-')[0] || 'en';
       setUserLang(browserLang);
 
-      const savedLang = localStorage.getItem('galaxy_wheel_language');
-      const langToUse = savedLang || browserLang;
-      setCurrentLang(langToUse);
-      await i18n.changeLanguage(langToUse);
-      localStorage.setItem('galaxy_wheel_language', langToUse);
-      document.cookie = `galaxy_wheel_language=${langToUse}; path=/; max-age=2592000`;
+      const savedLang = localStorage.getItem('galaxy_wheel_language') || browserLang;
+      setCurrentLang(savedLang);
+      await i18n.changeLanguage(savedLang);
+      localStorage.setItem('galaxy_wheel_language', savedLang);
+      document.cookie = `galaxy_wheel_language=${savedLang}; path=/; max-age=2592000`;
 
       updateSpinStatus();
       updateAvailableSpins();
@@ -168,13 +174,11 @@ export default function HomePage() {
   return (
     <div className="min-h-screen relative overflow-hidden">
       {/* Language Toggle Button */}
-      {userLang !== 'en' && (
-        <LanguageToggle
-          userLang={userLang}
-          currentLang={currentLang}
-          onToggle={toggleLanguage}
-        />
-      )}
+      <LanguageToggle
+        userLang={userLang}
+        currentLang={currentLang}
+        onToggle={toggleLanguage}
+      />
 
       {/* Control Buttons */}
       <div className="fixed top-4 right-4 z-20 flex gap-2">
