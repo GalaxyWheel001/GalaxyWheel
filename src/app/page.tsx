@@ -6,7 +6,6 @@ import { useTranslation } from 'react-i18next';
 import { Volume2, VolumeX, MessageCircle } from 'lucide-react';
 import { WheelOfFortune } from '@/components/wheel/WheelOfFortune';
 import { SpinTimer } from '@/components/wheel/SpinTimer';
-import { CosmicDecorations } from '@/components/wheel/CosmicDecorations';
 import { ShareSpin } from '@/components/wheel/ShareSpin';
 import SpinResult from '@/components/wheel/SpinResult';
 import SupportChat from '@/components/wheel/SupportChat';
@@ -20,7 +19,38 @@ import type { GeolocationData, SpinResult as SpinResultType } from '@/types';
 import '../utils/i18n';
 import { getUserId, isNewUser } from '@/utils/userId';
 
-// Simple loading component for SSR
+// Language toggle button with flag
+function LanguageToggle({ userLang, currentLang, onToggle }: { userLang: string, currentLang: string, onToggle: () => void }) {
+  const getFlagUrl = (lang: string) => {
+    // special case for English
+    const code = lang === 'en' ? 'gb' : lang;
+    return `https://flagcdn.com/w40/${code}.png`;
+  };
+
+  return (
+    <button
+      onClick={onToggle}
+      style={{
+        position: 'fixed',
+        top: '15px',
+        right: '15px',
+        width: '42px',
+        height: '42px',
+        borderRadius: '50%',
+        border: 'none',
+        boxShadow: '0 2px 6px rgba(0,0,0,0.2)',
+        backgroundImage: `url(${getFlagUrl(currentLang)})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        cursor: 'pointer',
+        zIndex: 9999
+      }}
+      title={currentLang === 'en' ? `Switch to ${userLang.toUpperCase()}` : 'Switch to EN'}
+    />
+  );
+}
+
+// Simple loading screen
 function LoadingScreen() {
   return (
     <div className="min-h-screen flex items-center justify-center">
@@ -45,12 +75,13 @@ export default function HomePage() {
   const [showSupport, setShowSupport] = useState(false);
   const [selectedCurrency, setSelectedCurrency] = useState('USD');
 
-  // Используем оптимизированный хук
+  // Language states
+  const [userLang, setUserLang] = useState('en');
+  const [currentLang, setCurrentLang] = useState('en');
+
   const {
     spinStatus,
     availableSpins,
-    currencyRate,
-    currencySymbol,
     updateAvailableSpins,
     updateSpinStatus,
     handleSpinComplete
@@ -58,7 +89,6 @@ export default function HomePage() {
 
   const initializeApp = useCallback(async () => {
     try {
-      // Инициализируем аналитику
       analytics.init();
       initPerformanceTracking();
       preloadCriticalImages();
@@ -66,37 +96,35 @@ export default function HomePage() {
       const isNew = isNewUser();
       const userId = getUserId();
 
-      // Отслеживаем посещение
       analytics.trackUserAction('page_visit', { isNew });
 
-      // Send visit notification
       fetch('/api/notify', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ type: 'visit', userId, isNew }),
       });
 
-      // Detect user location and currency
       const locationData = await detectUserLocation();
       setGeoData(locationData);
 
-      // Set currency based on detected location
       if (locationData.currency) {
         setSelectedCurrency(locationData.currency);
         localStorage.setItem('galaxy_wheel_currency', locationData.currency);
       }
 
-      // Change language based on detected location
-      if (locationData.language && i18n.language !== locationData.language) {
-        await i18n.changeLanguage(locationData.language);
-        localStorage.setItem('galaxy_wheel_language', locationData.language);
-        document.cookie = `galaxy_wheel_language=${locationData.language}; path=/; max-age=2592000`;
-      }
+      // Detect language
+      const browserLang = locationData.language || navigator.language.split('-')[0];
+      setUserLang(browserLang);
 
-      // Обновляем статус спина
+      const savedLang = localStorage.getItem('galaxy_wheel_language');
+      const langToUse = savedLang || browserLang;
+      setCurrentLang(langToUse);
+      await i18n.changeLanguage(langToUse);
+      localStorage.setItem('galaxy_wheel_language', langToUse);
+      document.cookie = `galaxy_wheel_language=${langToUse}; path=/; max-age=2592000`;
+
       updateSpinStatus();
       updateAvailableSpins();
-
     } catch (error) {
       console.error('Initialization error:', error);
       analytics.trackError(error as Error, 'initialization');
@@ -108,20 +136,11 @@ export default function HomePage() {
   useEffect(() => {
     setMounted(true);
     initializeApp();
-    // Синхронизируем язык с кукой, если отличается
-    const cookieLang = (typeof document !== 'undefined' && document.cookie.match(/galaxy_wheel_language=([^;]+)/)?.[1]) || undefined;
-    if (cookieLang && i18n.language !== cookieLang) {
-      i18n.changeLanguage(cookieLang);
-    }
-  }, [initializeApp, i18n]);
+  }, [initializeApp]);
 
   const handleSpinResult = (result: SpinResultType) => {
     setSpinResult(result);
-    
-    // Используем оптимизированный обработчик
     handleSpinComplete(result);
-    
-    // Отслеживаем спин
     analytics.trackUserAction('spin_complete', { 
       amount: result.amount, 
       currency: result.currency 
@@ -131,19 +150,16 @@ export default function HomePage() {
   const handleTimerEnd = () => {
     updateSpinStatus();
     updateAvailableSpins();
-    
-    // Отслеживаем обновление таймера
     analytics.trackUserAction('timer_end');
   };
 
-  const rate = getCurrencyRate(selectedCurrency);
-  const symbol = getCurrencySymbol(selectedCurrency);
-  const shareAmount = `${symbol}${Math.round(25 * rate)}`;
-  const shareMessage = t('shareMessage', {
-    amount: shareAmount,
-    currency: selectedCurrency,
-    promocode: 'GALAXY-WHEEL'
-  });
+  const toggleLanguage = () => {
+    const newLang = currentLang === 'en' ? userLang : 'en';
+    setCurrentLang(newLang);
+    i18n.changeLanguage(newLang);
+    localStorage.setItem('galaxy_wheel_language', newLang);
+    document.cookie = `galaxy_wheel_language=${newLang}; path=/; max-age=2592000`;
+  };
 
   if (!mounted || loading) {
     return <LoadingScreen />;
@@ -151,11 +167,32 @@ export default function HomePage() {
 
   return (
     <div className="min-h-screen relative overflow-hidden">
-      {/* Background Effects */}
-      {/* <div className="cosmic-bg"></div> */}
-      {/* <div className="stars"></div> */}
-      {/* <div className="particles"></div> */}
-      {/* <CosmicDecorations /> */}
+      {/* Language Toggle Button */}
+      {userLang !== 'en' && (
+        <LanguageToggle
+          userLang={userLang}
+          currentLang={currentLang}
+          onToggle={toggleLanguage}
+        />
+      )}
+
+      {/* Control Buttons */}
+      <div className="fixed top-4 right-4 z-20 flex gap-2">
+        <button
+          onClick={toggleSound}
+          className="w-12 h-12 bg-gray-800 bg-opacity-80 rounded-full flex items-center justify-center text-white hover:bg-opacity-100 transition-all"
+          title={isMuted ? t('soundOff') : t('soundOn')}
+        >
+          {isMuted ? <VolumeX size={20} /> : <Volume2 size={20} />}
+        </button>
+        <button
+          onClick={() => setShowSupport(!showSupport)}
+          className="w-12 h-12 bg-blue-600 bg-opacity-80 rounded-full flex items-center justify-center text-white hover:bg-opacity-100 transition-all"
+          title={t('support')}
+        >
+          <MessageCircle size={20} />
+        </button>
+      </div>
 
       {/* Header */}
       <header className="relative z-10 pt-8 pb-4">
@@ -169,55 +206,25 @@ export default function HomePage() {
         </div>
       </header>
 
-
-
       {/* Main Content */}
       <main className="relative z-10 flex flex-col items-center justify-center px-4 pb-8">
-        {/* Timer (if user has already spun) */}
         {spinStatus.hasSpunToday && (
           <SpinTimer
             nextSpinTime={spinStatus.nextSpinTime}
             onTimerEnd={handleTimerEnd}
           />
         )}
-
-        {/* Wheel of Fortune */}
         <WheelOfFortune
           currency={selectedCurrency}
           availableSpins={availableSpins}
           onSpinComplete={handleSpinResult}
         />
-
-        {/* User Info */}
         {geoData && (
-          <div
-            className="mt-8 text-center text-gray-400 text-sm"
-          >
+          <div className="mt-8 text-center text-gray-400 text-sm">
             <p>🌍 {geoData.country} • 💰 {geoData.currency}</p>
           </div>
         )}
       </main>
-
-      {/* Control Buttons */}
-      <div className="fixed top-4 right-4 z-20 flex gap-2">
-        {/* Sound Toggle */}
-        <button
-          onClick={toggleSound}
-          className="w-12 h-12 bg-gray-800 bg-opacity-80 rounded-full flex items-center justify-center text-white hover:bg-opacity-100 transition-all"
-          title={isMuted ? t('soundOff') : t('soundOn')}
-        >
-          {isMuted ? <VolumeX size={20} /> : <Volume2 size={20} />}
-        </button>
-
-        {/* Support Button */}
-        <button
-          onClick={() => setShowSupport(!showSupport)}
-          className="w-12 h-12 bg-blue-600 bg-opacity-80 rounded-full flex items-center justify-center text-white hover:bg-opacity-100 transition-all"
-          title={t('support')}
-        >
-          <MessageCircle size={20} />
-        </button>
-      </div>
 
       {/* Spin Result Modal */}
       <AnimatePresence>
@@ -243,3 +250,4 @@ export default function HomePage() {
     </div>
   );
 }
+
