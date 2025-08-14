@@ -173,7 +173,7 @@ export default function HomePage() {
 
   return (
     <div className="min-h-screen relative overflow-hidden">
-      {/* Language Toggle Button */}
+      {/* Language Toggle Button — всегда показываем */}
       <LanguageToggle
         userLang={userLang}
         currentLang={currentLang}
@@ -254,4 +254,3 @@ export default function HomePage() {
     </div>
   );
 }
-
