@@ -9,6 +9,7 @@ import { SpinTimer } from '@/components/wheel/SpinTimer';
 import { ShareSpin } from '@/components/wheel/ShareSpin';
 import SpinResult from '@/components/wheel/SpinResult';
 import SupportChat from '@/components/wheel/SupportChat';
+import { CosmicDecorations } from '@/components/wheel/CosmicDecorations';
 import { detectUserLocation } from '@/utils/geolocation';
 import { useSound } from '@/hooks/useSound';
 import { useOptimizedSpin } from '@/hooks/useOptimizedSpin';
@@ -38,7 +39,6 @@ function LanguageToggle({
   currentLang: string;
   onToggle: () => void;
 }) {
-  // Флаг показывает язык, на который переключится
   const nextLang = currentLang === 'en' ? userLang : 'en';
   const flagCode = nextLang === 'en' ? 'gb' : nextLang;
 
@@ -46,9 +46,6 @@ function LanguageToggle({
     <button
       onClick={onToggle}
       style={{
-        position: 'fixed',
-        top: '15px',
-        right: '15px',
         width: '42px',
         height: '42px',
         borderRadius: '50%',
@@ -57,8 +54,8 @@ function LanguageToggle({
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         cursor: 'pointer',
-        zIndex: 9999
       }}
+      className="fixed top-4 right-4 z-20"
       title={`Switch to ${nextLang.toUpperCase()}`}
     />
   );
@@ -75,8 +72,8 @@ export default function HomePage() {
   const [showSupport, setShowSupport] = useState(false);
   const [selectedCurrency, setSelectedCurrency] = useState('USD');
 
-  const [userLang, setUserLang] = useState('en'); // Родной язык пользователя
-  const [currentLang, setCurrentLang] = useState('en'); // Язык интерфейса
+  const [userLang, setUserLang] = useState('en');
+  const [currentLang, setCurrentLang] = useState('en');
 
   const {
     spinStatus,
@@ -86,7 +83,6 @@ export default function HomePage() {
     handleSpinComplete
   } = useOptimizedSpin(selectedCurrency);
 
-  // Initialize app
   const initializeApp = useCallback(async () => {
     try {
       analytics.init();
@@ -103,7 +99,6 @@ export default function HomePage() {
         body: JSON.stringify({ type: 'visit', userId, isNew }),
       });
 
-      // Detect geolocation (optional)
       const locationData = await detectUserLocation();
       setGeoData(locationData);
 
@@ -140,7 +135,6 @@ export default function HomePage() {
   useEffect(() => {
     setMounted(true);
 
-    // Определяем язык сразу
     const browserLang = navigator.language.split('-')[0] || 'en';
     setUserLang(browserLang);
 
@@ -171,12 +165,17 @@ export default function HomePage() {
     document.cookie = `galaxy_wheel_language=${newLang}; path=/; max-age=2592000`;
   };
 
-  if (!mounted || loading) {
-    return <LoadingScreen />;
-  }
+  if (!mounted || loading) return <LoadingScreen />;
 
   return (
     <div className="min-h-screen relative overflow-hidden bg-black text-white">
+      {/* Background */}
+      <div className="absolute inset-0 z-0">
+        <CosmicDecorations />
+        <div className="cosmic-bg"></div>
+        <div className="stars"></div>
+      </div>
+
       {/* Language toggle button */}
       <LanguageToggle userLang={userLang} currentLang={currentLang} onToggle={toggleLanguage} />
 
@@ -223,9 +222,7 @@ export default function HomePage() {
 
       {/* Spin result modal */}
       <AnimatePresence>
-        {spinResult && (
-          <SpinResult result={spinResult} onClose={() => setSpinResult(null)} currency={selectedCurrency} />
-        )}
+        {spinResult && <SpinResult result={spinResult} onClose={() => setSpinResult(null)} currency={selectedCurrency} />}
       </AnimatePresence>
 
       {/* Support chat */}
