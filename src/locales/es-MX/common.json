@@ -21,12 +21,12 @@
   "shareMessage": "¡Gané {{amount}} {{currency}} bono sin depósito! Código: {{promocode}} 🎰✨",
   "copied": "¡Copiado al portapapeles!",
   "wheelSectors": {
-    "25": "$25 Bono",
+    "20": "$20 Bono",
+    "35": "$35 Bono",
     "50": "$50 Bono",
-    "100": "$100 Bono",
-    "250": "$250 Bono",
-    "500": "$500 Bono",
-    "1000": "$1000 Bono"
+    "70": "$70 Bono",
+    "85": "$85 Bono",
+    "100": "$100 Bono"
   },
   "chat": {
     "title": "Chat de Soporte",
@@ -50,11 +50,9 @@
     "whatsapp": "WhatsApp",
     "twitter": "Twitter",
     "facebook": "Facebook",
-    "shareText": "¿Quieres un bono sin depósito de hasta $1000? Ve a casino-galaxy.bet y reclama tu oportunidad de ganar ahora mismo! 🎰✨"
+    "shareText": "¿Quieres un bono sin depósito de hasta $100? Ve a casino-galaxy.bet y reclama tu oportunidad de ganar ahora mismo! 🎰✨"
   },
-  "close": "Cerrar"
-,
-  "promocodeCopied": "Copied!"
-,
+  "close": "Cerrar",
+  "promocodeCopied": "Copied!",
   "promocodeCopiedToClipboard": "¡Código promocional copiado al portapapeles!"
-} 
+}

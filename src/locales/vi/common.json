@@ -21,12 +21,12 @@
   "shareMessage": "Tôi đã thắng {{amount}} {{currency}} thưởng không cần gửi tiền! Mã: {{promocode}} 🎰✨",
   "copied": "Đã sao chép vào clipboard!",
   "wheelSectors": {
-    "25": "Thưởng 25$",
+    "20": "Thưởng 20$",
+    "35": "Thưởng 35$",
     "50": "Thưởng 50$",
-    "100": "Thưởng 100$",
-    "250": "Thưởng 250$",
-    "500": "Thưởng 500$",
-    "1000": "Thưởng 1000$"
+    "70": "Thưởng 70$",
+    "85": "Thưởng 85$",
+    "100": "Thưởng 100$"
   },
   "chat": {
     "title": "Trò chuyện hỗ trợ",
@@ -50,9 +50,7 @@
     "whatsapp": "WhatsApp",
     "twitter": "Twitter"
   },
-  "close": "Đóng"
-,
-  "promocodeCopied": "Copied!"
-,
+  "close": "Đóng",
+  "promocodeCopied": "Copied!",
   "promocodeCopiedToClipboard": "Đã sao chép mã khuyến mãi vào khay nhớ tạm!"
-} 
+}

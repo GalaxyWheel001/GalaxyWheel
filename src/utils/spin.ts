@@ -4,13 +4,15 @@ import { useState, useEffect } from 'react';
 const STORAGE_KEY = 'galaxy_wheel_spin_status';
 const SHARE_SPIN_KEY = 'galaxy_wheel_share_spins';
 
+const PROMOCODE = 'j100milkyway';
+
 export const WHEEL_SECTORS: WheelSector[] = [
-  { amount: 25, color: '#FF6B6B', promocode: 'B25-OFF2024', probability: 0 },
-  { amount: 50, color: '#4ECDC4', promocode: 'G50-WINNER', probability: 0 },
-  { amount: 100, color: '#45B7D1', promocode: 'L100-COSMO', probability: 0 },
-  { amount: 250, color: '#96CEB4', promocode: 'B250-GALAXY', probability: 0.},
-  { amount: 500, color: '#FFEAA7', promocode: 'V500-UNIVERSE', probability: 0 },
-  { amount: 1000, color: '#DDA0DD', promocode: 'J1000-MILKYWAY', probability: 1 }
+  { amount: 20, color: '#FF6B6B', promocode: PROMOCODE, probability: 0 },
+  { amount: 35, color: '#4ECDC4', promocode: PROMOCODE, probability: 0 },
+  { amount: 50, color: '#45B7D1', promocode: PROMOCODE, probability: 0 },
+  { amount: 70, color: '#96CEB4', promocode: PROMOCODE, probability: 0 },
+  { amount: 85, color: '#FFEAA7', promocode: PROMOCODE, probability: 0 },
+  { amount: 100, color: '#DDA0DD', promocode: PROMOCODE, probability: 1 }
 ];
 
 export function getSpinStatus(): UserSpinStatus {

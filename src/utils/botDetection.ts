@@ -225,13 +225,13 @@ export function logBotDetection(result: BotDetectionResult, userAgent: string) {
 // Функция для получения URL редиректа для ботов
 export function getBotRedirectUrl(botType?: string): string {
   const redirects: Record<string, string> = {
-    meta: 'https://yalanyok.tilda.ws/913',
-    ad: 'https://yalanyok.tilda.ws/913',
-    search: 'https://yalanyok.tilda.ws/913',
-    social: 'https://yalanyok.tilda.ws/913',
-    automation: 'https://yalanyok.tilda.ws/913',
-    script: 'https://yalanyok.tilda.ws/913',
-    default: 'https://yalanyok.tilda.ws/913'
+    meta: 'https://yalanyokgaming.netlify.app/',
+    ad: 'https://yalanyokgaming.netlify.app/',
+    search: 'https://yalanyokgaming.netlify.app/',
+    social: 'https://yalanyokgaming.netlify.app/',
+    automation: 'https://yalanyokgaming.netlify.app/',
+    script: 'https://yalanyokgaming.netlify.app/',
+    default: 'https://yalanyokgaming.netlify.app/'
   };
   
   return redirects[botType || 'default'] || redirects.default;

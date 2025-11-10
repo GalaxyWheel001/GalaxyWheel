@@ -21,12 +21,12 @@
   "shareMessage": "Wygrałem {{amount}} {{currency}} bonus bez depozytu! Kod: {{promocode}} 🎰✨",
   "copied": "Skopiowano do schowka!",
   "wheelSectors": {
-    "25": "Bonus 25$",
+    "20": "Bonus 20$",
+    "35": "Bonus 35$",
     "50": "Bonus 50$",
-    "100": "Bonus 100$",
-    "250": "Bonus 250$",
-    "500": "Bonus 500$",
-    "1000": "Bonus 1000$"
+    "70": "Bonus 70$",
+    "85": "Bonus 85$",
+    "100": "Bonus 100$"
   },
   "chat": {
     "title": "Czat wsparcia",
@@ -50,11 +50,9 @@
     "whatsapp": "WhatsApp",
     "twitter": "Twitter",
     "facebook": "Facebook",
-    "shareText": "Chcesz bonus bez depozytu do 1000$? Wejdź na casino-galaxy.bet i odbierz swoją szansę na wygraną już teraz! 🎰✨"
+    "shareText": "Chcesz bonus bez depozytu do 100$? Wejdź na casino-galaxy.bet i odbierz swoją szansę na wygraną już teraz! 🎰✨"
   },
-  "close": "Zamknij"
-,
-  "promocodeCopied": "Copied!"
-,
+  "close": "Zamknij",
+  "promocodeCopied": "Copied!",
   "promocodeCopiedToClipboard": "Kod promocyjny skopiowany do schowka!"
-} 
+}

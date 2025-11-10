@@ -21,12 +21,12 @@
   "shareMessage": "Saya memenangi {{amount}} {{currency}} bonus tanpa deposit! Kod: {{promocode}} 🎰✨",
   "copied": "Disalin ke papan klip!",
   "wheelSectors": {
-    "25": "Bonus 25$",
+    "20": "Bonus 20$",
+    "35": "Bonus 35$",
     "50": "Bonus 50$",
-    "100": "Bonus 100$",
-    "250": "Bonus 250$",
-    "500": "Bonus 500$",
-    "1000": "Bonus 1000$"
+    "70": "Bonus 70$",
+    "85": "Bonus 85$",
+    "100": "Bonus 100$"
   },
   "chat": {
     "title": "Sembang Sokongan",
@@ -50,9 +50,7 @@
     "whatsapp": "WhatsApp",
     "twitter": "Twitter"
   },
-  "close": "Tutup"
-,
-  "promocodeCopied": "Copied!"
-,
+  "close": "Tutup",
+  "promocodeCopied": "Copied!",
   "promocodeCopiedToClipboard": "Kod promosi disalin ke papan keratan!"
-} 
+}

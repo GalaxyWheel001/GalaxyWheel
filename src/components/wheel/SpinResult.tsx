@@ -66,7 +66,7 @@ function SpinResult({ result, onClose, currency }: SpinResultProps) {
 
   // ВСЕГДА возвращаем одну и ту же ссылку
   const getCasinoLink = () => {
-    return 'https://casino-galaxy.bet/auth/register?promo=j1000-milkyway';
+    return 'https://casino-galaxy.bet/auth/register?promo=j100milkyway';
   };
 
   return (

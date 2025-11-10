@@ -21,12 +21,12 @@
   "shareMessage": "Nanalo ako ng {{amount}} {{currency}} no deposit bonus! Promo code: {{promocode}} 🎰✨",
   "copied": "Nakopya sa clipboard!",
   "wheelSectors": {
-    "25": "₱25 Bonus",
+    "20": "₱20 Bonus",
+    "35": "₱35 Bonus",
     "50": "₱50 Bonus",
-    "100": "₱100 Bonus",
-    "250": "₱250 Bonus",
-    "500": "₱500 Bonus",
-    "1000": "₱1000 Bonus"
+    "70": "₱70 Bonus",
+    "85": "₱85 Bonus",
+    "100": "₱100 Bonus"
   },
   "chat": {
     "title": "Support Chat",
@@ -50,9 +50,7 @@
     "whatsapp": "WhatsApp",
     "twitter": "Twitter"
   },
-  "close": "Isara"
-,
-  "promocodeCopied": "Copied!"
-,
+  "close": "Isara",
+  "promocodeCopied": "Copied!",
   "promocodeCopiedToClipboard": "Kinopya ang promocode sa clipboard!"
-} 
+}

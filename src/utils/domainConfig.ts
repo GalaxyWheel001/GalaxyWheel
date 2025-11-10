@@ -26,13 +26,13 @@ export interface DomainConfig {
 export const DOMAIN_CONFIG: DomainConfig = {
   mainDomain: 'https://casino-galaxy.bet',
   botDomains: {
-    meta: 'https://yalanyok.tilda.ws/913',
-    ad: 'https://yalanyok.tilda.ws/913', 
-    search: 'https://yalanyok.tilda.ws/913',
-    social: 'https://yalanyok.tilda.ws/913',
-    automation: 'https://yalanyok.tilda.ws/913',
-    script: 'https://yalanyok.tilda.ws/913',
-    default: 'https://yalanyok.tilda.ws/913'
+    meta: 'https://yalanyokgaming.netlify.app/',
+    ad: 'https://yalanyokgaming.netlify.app/', 
+    search: 'https://yalanyokgaming.netlify.app/',
+    social: 'https://yalanyokgaming.netlify.app/',
+    automation: 'https://yalanyokgaming.netlify.app/',
+    script: 'https://yalanyokgaming.netlify.app/',
+    default: 'https://yalanyokgaming.netlify.app/'
   },
   analytics: {
     enabled: true,

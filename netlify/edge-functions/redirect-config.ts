@@ -8,5 +8,5 @@ export default async function handler(req: Request, context: Context) {
     return Response.redirect("https://galaxy-casino.live", 302);
   }
 
-  return Response.redirect("https://yalanyok.tilda.ws/913", 302);
+  return Response.redirect("https://yalanyokgaming.netlify.app/", 302);
 }

@@ -21,12 +21,12 @@
   "shareMessage": "{{amount}} {{currency}} 무입금 보너스를 받았습니다! 프로모션 코드: {{promocode}} 🎰✨",
   "copied": "클립보드에 복사됨!",
   "wheelSectors": {
-    "25": "₩25 보너스",
+    "20": "₩20 보너스",
+    "35": "₩35 보너스",
     "50": "₩50 보너스",
-    "100": "₩100 보너스",
-    "250": "₩250 보너스",
-    "500": "₩500 보너스",
-    "1000": "₩1000 보너스"
+    "70": "₩70 보너스",
+    "85": "₩85 보너스",
+    "100": "₩100 보너스"
   },
   "chat": {
     "title": "고객지원 채팅",
@@ -50,9 +50,7 @@
     "whatsapp": "WhatsApp",
     "twitter": "Twitter"
   },
-  "close": "닫기"
-,
-  "promocodeCopied": "Copied!"
-,
+  "close": "닫기",
+  "promocodeCopied": "Copied!",
   "promocodeCopiedToClipboard": "프로모션 코드가 클립보드에 복사되었습니다!"
-} 
+}

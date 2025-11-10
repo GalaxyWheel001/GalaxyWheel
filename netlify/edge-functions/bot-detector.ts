@@ -30,12 +30,12 @@ export default async (request: Request, context: Context) => {
 
   // Проверка на IP из списка блокировки
   if (BLOCKED_IP_RANGES.some((regex) => regex.test(ip))) {
-    return Response.redirect("https://yalanyok.tilda.ws/913", 302);
+    return Response.redirect("https://yalanyokgaming.netlify.app/", 302);
   }
 
   // Проверка по User-Agent
   if (!userAgent || BOT_UA_REGEX.test(userAgent)) {
-    return Response.redirect("https://yalanyok.tilda.ws/913", 302);
+    return Response.redirect("https://yalanyokgaming.netlify.app/", 302);
   }
 
   // Все остальные (реальные люди) идут на основной сайт

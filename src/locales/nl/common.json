@@ -21,12 +21,12 @@
   "shareMessage": "Ik heb {{amount}} {{currency}} no deposit bonus gewonnen! Promocode: {{promocode}} 🎰✨",
   "copied": "Gekopieerd naar klembord!",
   "wheelSectors": {
-    "25": "€25 Bonus",
+    "20": "€20 Bonus",
+    "35": "€35 Bonus",
     "50": "€50 Bonus",
-    "100": "€100 Bonus",
-    "250": "€250 Bonus",
-    "500": "€500 Bonus",
-    "1000": "€1000 Bonus"
+    "70": "€70 Bonus",
+    "85": "€85 Bonus",
+    "100": "€100 Bonus"
   },
   "chat": {
     "title": "Support Chat",
@@ -50,11 +50,9 @@
     "whatsapp": "WhatsApp",
     "twitter": "Twitter",
     "facebook": "Facebook",
-    "shareText": "Wil je een no deposit bonus tot $1000? Ga naar casino-galaxy.bet en claim direct je kans om te winnen! 🎰✨"
+    "shareText": "Wil je een no deposit bonus tot $100? Ga naar casino-galaxy.bet en claim direct je kans om te winnen! 🎰✨"
   },
-  "close": "Sluiten"
-,
-  "promocodeCopied": "Copied!"
-,
+  "close": "Sluiten",
+  "promocodeCopied": "Copied!",
   "promocodeCopiedToClipboard": "Promotiecode gekopieerd naar klembord!"
-} 
+}

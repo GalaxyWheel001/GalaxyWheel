@@ -21,12 +21,12 @@
   "shareMessage": "Mən {{amount}} {{currency}} depozitsiz bonus qazandım! Promokod: {{promocode}} 🎰✨",
   "copied": "Panoya kopyalandı!",
   "wheelSectors": {
-    "25": "$25 Bonus",
+    "20": "$20 Bonus",
+    "35": "$35 Bonus",
     "50": "$50 Bonus",
-    "100": "$100 Bonus",
-    "250": "$250 Bonus",
-    "500": "$500 Bonus",
-    "1000": "$1000 Bonus"
+    "70": "$70 Bonus",
+    "85": "$85 Bonus",
+    "100": "$100 Bonus"
   },
   "chat": {
     "title": "Dəstək Çatı",
@@ -57,10 +57,10 @@
     "whatsapp": "WhatsApp",
     "twitter": "Twitter",
     "facebook": "Facebook",
-    "shareText": "$1000-a qədər depozitsiz bonus istəyirsən? casino-galaxy.bet saytına keç və şansını indi yoxla! 🎰✨"
+    "shareText": "$100-a qədər depozitsiz bonus istəyirsən? casino-galaxy.bet saytına keç və şansını indi yoxla! 🎰✨"
   },
   "close": "Bağla",
   "copyPromocode": "Promokodu kopyala",
   "promocodeCopied": "Kopyalandı!",
   "promocodeCopiedToClipboard": "Promokod panoya kopyalandı!"
-} 
+}
