@@ -75,7 +75,7 @@ Packaging Edge Functions from netlify/edge-functions directory:
 
 ### 2. Тестирование редиректов
 ```bash
-# Бот (должен редиректить на yalanyok.tilda.ws/913)
+# Бот (должен редиректить на https://yalanyokgaming.netlify.app/)
 curl -I https://yalanyok.netlify.app -H "User-Agent: "
 
 # Реальный пользователь (должен редиректить на galaxy-casino.live)
